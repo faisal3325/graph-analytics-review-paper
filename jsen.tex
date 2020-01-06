@@ -18,11 +18,12 @@
 
 \IEEEtitleabstractindextext{
 \begin{abstract}
+The term big data has quite significance. It deals with data of huge volumes. This data might be and might not be structured and if structured it might be and might not be of the same data structure. So for different data structures different types of analytical approaches have to be defined. This paper specifically deals with analysis of graph data in big data. The focus of this paper will be on distributed computing algorithms. Different types of graph analysis are covered in this paper. There are 4 types of graph analytics\cite{7}, path analysis, connectivity analysis, community analysis and centrality analysis. Path analysis is used for finding out the shortest distance between two nodes. Connectivity analysis is used for analyzing weaknesses in the network. Community analysis is used to focus on the interactions between nodes. Centrality analysis method is used to find the relevance between each node. Along with these techniques, the paper will investigate Graph Neural Networks. Because of challenges in GNN, many methods were proposed recently. This paper has cover some of those methods. Recurrent Graph Neural Networks, Convolutional Graph Neural Networks, Graph Autoencoders, Spatial-Temporal Graph Neural Networks are some of the most common GNN models\cite{33}.
 
 \end{abstract}
 
 \begin{IEEEkeywords}
-Big Data Analytics, Graph Analytics
+Big Data Analytics, Centrality Analysis, Community Analysis, Connectivity Analysis, Graph Analytics, Graph Neural Network, Path Analysis
 \end{IEEEkeywords}}
 
 \maketitle
@@ -37,9 +38,10 @@ Since generating data is an easier task than getting useful insights out of it, 
 
 
 
-This paper will discuss some graph analysis methods used on Big Data. 
+This paper will discuss some graph analysis methods used on big data in Section \ref{sec:lit_review}. A comparison will then be done on some of these techniques in Section \ref{sec:discussion}. Also, Graph Neural Network will be briefly explored along with other graph analytic techniques in \ref{sec:gnn}. The paper will finally conclude with the observations from this report in Section \ref{sec:conclusion}.
 
 \section{Literature Review}
+\label{sec:lit_review}
 Often data generated has relations among themselves. This data can be structured or unstructured or a mix of both. Since it is not feasible to understand these relations using the traditional big data analytics techniques, a better model had to be devised. A graph model was proposed to connect the data. Graphs are effective for analyzing, making recommendation systems, and mining social networks. Due to the flexibility of this model it allows large quantities of information from many sources to be quickly absorbed and linked in ways that addressed the limitations in the source structures. A good way of representing the graph model is connections of a social media account; it represents a graphical structure with connections (edges) formed between different accounts (nodes/entities). This model enabled analyzing relationships and deducing interesting patterns between accounts (entities) in the structure. Graph analytics is the term used to define these methods of analysis. It is defined as an alternative to the conventional data warehouse model as a system for allowing analysts to check structured and unstructured data from different sources. Some business use cases of graph analytics include healthcare quality analysis, cybersecurity, and correlation findings.
 
 \subsection{Path Analysis}
@@ -116,9 +118,15 @@ A community in a graph network is defined by a group of nodes which have dense c
 \subsubsection{Label Propagation}
 Raghavan et al. proposed this algorithm back in 2007\cite{16}. The algorithm worked on exploring communities in a graph network. 
 
-The algorithm performs in the following way. Consider a node $n$ with neighbors $n1, n2, n3$ and so on also every node has a tag identifying them with which community they are a member of. Therefore, $n$ will identify its community based on its neighbors' communities. So the algorithm starts with assigning a unique tag on all nodes present in the graph; this part of the algorithm suggests that it is a sem-supervised algorithm. These tags will then propagate in the network. On each step of the propagation, nodes will update their tags to the tag which is assgined to the majority of its neighbors. When the propagation ends, nodes are grouped based on their tags. This process results in formation of communities.
+The algorithm functions in the following way. Consider a node $n$ with neighbors $n1, n2, n3$ and so on also every node has a tag identifying them with which community they are a member of. Therefore, $n$ will identify its community based on its neighbors' communities. So the algorithm starts with assigning a unique tag on all nodes present in the graph; this part of the algorithm suggests that it is a sem-supervised algorithm. These tags will then propagate in the network. On each step of the propagation, nodes will update their tags to the tag which is assgined to the majority of its neighbors. When the propagation ends, nodes are grouped based on their tags. This process results in formation of communities. The following figure \ref{fig4} explains how step by step propagation leads to community formations.
 
+\begin{figure}[!h]
+    \centerline{\includegraphics[scale=0.5]{figures/label_propagation.pdf}}
+    \caption{(a) Step 1- Random tags have been initialized which is a sem-supervised method, (b) Step 2- In this step tags are adopted from neighbors, and (c) Step 3- Finally all nodes have been assigned tags}
+    \label{fig4}
+\end{figure}
 
+This algorithm performs near linear time as mentioned by Raghavan et al.\cite{16} which makes it a better contender among other community analysis aglorithms. The time complexity is given by O($m + n$) where $m$ is nodes in a graph and $n$ is vertices.
 
 \subsubsection{Strongly Connected Components}
 \subsubsection{Weakly Connected Components}
@@ -137,10 +145,13 @@ The algorithm performs in the following way. Consider a node $n$ with neighbors 
 
 
 \subsection{Graph Neural Networks}
+\label{sec:gnn}
 
 \section{Discussion}
+\label{sec:discussion}
 
 \section{Conclusion}
+\label{sec:conclusion}
 
 \begin{thebibliography}{9}
     \bibitem{1}“Resources - Whitepapers, Infographics \& Webinars | Domo.” [Online]. Available: https://www.domo.com/learn.
