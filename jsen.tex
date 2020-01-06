@@ -139,6 +139,16 @@ This algorithm performs near linear time as mentioned by Raghavan et al.\cite{16
 Centrality analysis is used to identify the relevance between each node. It measures the importance of nodes. It is used to find the influence of people in a social network, used to get the most popular web page based on access, and key nodes in a network. Although this method was introduced specifically for social network analysis, it has been adopted in many other fields.
 
 \subsubsection{Degree Centrality}
+Degree centrality was proposed by Freeman in 1979\cite{25}. It is used for measuring the relationships of a node. For a directed graph, it divides the relationships into indegree and outdegree where indegree is the number of connections coming in while outdegree is the number of connections going out of the node. It shows the activity of a node. In simple terms, it states higher the number of neighbors more important the node is. This way degree centrality is used for indentifying most influential accounts on Twitter or other social networking platforms. Since it just involves propagating through the network and calculate the degree(inwards and outwards connections) of each node, it is a simple method to implement. The following figure \ref{fig5} depicts a network of nodes with degree centrality algorithm applied over it.
+
+\begin{figure}[!h]
+    \centerline{\includegraphics[scale=0.45]{figures/degree_centrality.pdf}}
+    \caption{As it can be noticed in the figure, the number of inward connections in node A is 9, node B has 5, and node C has 10}
+    \label{fig5}
+\end{figure}
+
+The time complexity of this algorithm thus will be O($v$) where $v$ is vertices of the graph.
+
 \subsubsection{Eigenvector Centrality}
 \subsubsection{Katz Centrality}
 \subsubsection{PageRank Centrality}
