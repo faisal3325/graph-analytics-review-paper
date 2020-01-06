@@ -121,7 +121,7 @@ Raghavan et al. proposed this algorithm back in 2007\cite{16}. The algorithm wor
 The algorithm functions in the following way. Consider a node $n$ with neighbors $n1, n2, n3$ and so on also every node has a tag identifying them with which community they are a member of. Therefore, $n$ will identify its community based on its neighbors' communities. So the algorithm starts with assigning a unique tag on all nodes present in the graph; this part of the algorithm suggests that it is a sem-supervised algorithm. These tags will then propagate in the network. On each step of the propagation, nodes will update their tags to the tag which is assgined to the majority of its neighbors. When the propagation ends, nodes are grouped based on their tags. This process results in formation of communities. The following figure \ref{fig4} explains how step by step propagation leads to community formations.
 
 \begin{figure}[!h]
-    \centerline{\includegraphics[scale=0.5]{figures/label_propagation.pdf}}
+    \centerline{\includegraphics[scale=0.35]{figures/label_propagation.pdf}}
     \caption{(a) Step 1- Random tags have been initialized which is a sem-supervised method, (b) Step 2- In this step tags are adopted from neighbors, and (c) Step 3- Finally all nodes have been assigned tags}
     \label{fig4}
 \end{figure}
@@ -136,6 +136,8 @@ This algorithm performs near linear time as mentioned by Raghavan et al.\cite{16
 \subsubsection{Bron-Kerbosch}
 
 \subsection{Centrality Analysis}
+Centrality analysis is used to identify the relevance between each node. It measures the importance of nodes. It is used to find the influence of people in a social network, used to get the most popular web page based on access, and key nodes in a network. Although this method was introduced specifically for social network analysis, it has been adopted in many other fields.
+
 \subsubsection{Degree Centrality}
 \subsubsection{Eigenvector Centrality}
 \subsubsection{Katz Centrality}
