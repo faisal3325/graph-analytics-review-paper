@@ -67,9 +67,80 @@ Parallel depth-first search also deals with parallelism as discussed in the prev
 
 The DFS algorithm starts at an arbitrary node and travels deep into a path before coming back a step and exploring the next path. This algorithm is used on a hierarchical data. Since the algorithm might face issues with infinite loops due to the fact we are traversing on a graph, similarly to BFS, DFS for graphs also have to be implemented with a mechanism to store visited nodes. The time complexity of DFS is similar to BFS, O($b^d$) while the space complexity is O($d$).
 
-Serial DFS also faces same problem as serial BFS, that is it will also consume a lot of time for big data analysis. So to avoid this, parallel DFS was proposed. To parallelize DFS, the graph is splitted among different processors. Each processor performs it's task independently until it finishes it after which the processor requests unfinished section of the graph from other processors.
+Serial DFS also faces same problem as serial BFS, that is it will also consume a lot of time for big data analysis. So to avoid this, parallel DFS was proposed. To parallelize DFS, the graph is splitted among different processors. Each processor performs it's task independently until it finishes it after which the processor requests unfinished section of the graph from other processors. Some of the models of implementation of parallel DFS include shared memory models, boolean circuits, and parallel comparison trees\cite{38}.  
 
-There are many implementations of parallel DFS and most of them showed logarithmic running time \cite{38}. A logarithmic running time is much more efficient than an exponential running time which is showed by a serial DFS.
+There are many implementations of parallel DFS and most of them showed logarithmic running time\cite{38}. A logarithmic running time is much more efficient than an exponential running time which is showed by a serial DFS.
+
+\subsubsection{Single-Source Shortest Path}
+
+
+\subsubsection{All-Pairs Shortest Path}
+
+
+\subsubsection{Minimum Weight Spanning Tree}
+
+
+\subsubsection{Random Walk}
+
+\subsection{Connectivity Analysis}
+Connectivity analysis helps in identifying the strength of connections/vertices between two nodes in a graph. It is most commonly used for analyzing weaknesses in a graph network. Before diving into the algorithms, it's important to understand how strength of a connection is defined in a graph.
+
+A component comprises of 2 or more nodes connected with each other. A concept of Strongly Connected Components (SCCs)\cite{39} is used. A component is said to be strongly connected when a given pair of nodes in the component has connections with each other.
+
+\begin{figure}[!h]
+    \centerline{\includegraphics[scale=0.75]{figures/scc.pdf}}
+    \caption{Graph shown has two SCCs with one node connecting both of them}
+    \label{fig2}
+\end{figure}
+
+In the above figure \ref{fig2}, there are two SCCs, one with {$1, 2, 3$} nodes and the other with {$7, 5, 6$} nodes connected with node $4$. As it can be seen that $1$ is connected with $2$ and $2$ is connected with $3$ which is then connected with $1$, thus it is said that both of these components are strongly connected.
+
+SCCs help in forming clusters in a graph. With the help of such clusters, analysis can be performed in the network. Some use cases of connectivity analysis includes social network and internet network analysis. Now the problem lies in finding out such SCCs. DFS and BFS are helpful in finding such components. Kosaraju devised an algorithm which in linear time helped in finding out SCCs\cite{40}. This paper will cover Kosaraju's algorithm's modification on BFS and DFS.
+
+\subsubsection{Kosaraju's BFS and DFS}
+Kosaraju's original proposed algorithms was based on DFS and some implementations exists of it on BFS. The DFS implementation does a simple trick by performing DFS two times on the same graph. Taking figure \ref{fig2} as example, the algorithm will perform first DFS on the graph. It will reverse the directions in the graph and start at $7$, explore in the order $7-6-5-4-1-3-2$. Now the node which finished first or visited at the end will be assigned the finisihing position starting from 1. The nodes will be renamed with their corresponding positions as shown below in figure \ref{fig3}. 
+
+\begin{figure}[!h]
+    \centerline{\includegraphics[scale=0.75]{figures/scc2.pdf}}
+    \caption{Nodes renamed with their position after the first DFS}
+    \label{fig3}
+\end{figure}
+
+Now second DFS will be performed and as $7$ was the start node previously, this time also it will start from $7$. The order will be then $7-6-5$ which is our first SCC and then starting DFS from $3$, the order will be $3-1-2$ which is our second SCC. Thus, the algorithm pointed out two SCCs in the graph. The time complexity of this algorithm will be O($v + e$) where $v$ is vertices of the graph and $e$ is edges.
+
+Kosarju's BFS algorithm also works in the same way; it performs BFS twice instead of DFS.
+
+\subsection{Community Analysis}
+A community in a graph network is defined by a group of nodes which have dense connections amongst themselves and sparse connections with the other group of nodes. Community analysis points out interactions between nodes. It is used for clustering nodes with similar attributes. This analysis also helps in analyzing how nodes are clustered or partitioned. The strength of a particular group can also be determined with this analysis. Community analysis is used in indentifying proteins involved in a biochemical process, recommendations for a group of people, and evaluating social networks. 
+
+\subsubsection{Label Propagation}
+Raghavan et al. proposed this algorithm back in 2007\cite{16}. The algorithm worked on exploring communities in a graph network. 
+
+The algorithm performs in the following way. Consider a node $n$ with neighbors $n1, n2, n3$ and so on also every node has a tag identifying them with which community they are a member of. Therefore, $n$ will identify its community based on its neighbors' communities. So the algorithm starts with assigning a unique tag on all nodes present in the graph; this part of the algorithm suggests that it is a sem-supervised algorithm. These tags will then propagate in the network. On each step of the propagation, nodes will update their tags to the tag which is assgined to the majority of its neighbors. When the propagation ends, nodes are grouped based on their tags. This process results in formation of communities.
+
+
+
+\subsubsection{Strongly Connected Components}
+\subsubsection{Weakly Connected Components}
+\subsubsection{Louvain Modularity}
+\subsubsection{Node Clustering Coefficient}
+\subsubsection{Average Clustering Coefficient}
+\subsubsection{Bron-Kerbosch}
+
+\subsection{Centrality Analysis}
+\subsubsection{Degree Centrality}
+\subsubsection{Eigenvector Centrality}
+\subsubsection{Katz Centrality}
+\subsubsection{PageRank Centrality}
+\subsubsection{Closeness Centrality}
+\subsubsection{Betweenness Centrality}
+
+
+\subsection{Graph Neural Networks}
+
+\section{Discussion}
+
+\section{Conclusion}
 
 \begin{thebibliography}{9}
     \bibitem{1}“Resources - Whitepapers, Infographics \& Webinars | Domo.” [Online]. Available: https://www.domo.com/learn.
@@ -143,11 +214,15 @@ There are many implementations of parallel DFS and most of them showed logarithm
     \bibitem{35}“Special Issue on Graph-based Methods for Large Scale Financial and Business Data Analysis - Call for Papers - Elsevier.” [Online]. Available: https://www.journals.elsevier.com/pattern-recognition/call-for-papers/graph-based-methods. [Accessed: 09-Dec-2019].
     
     \bibitem{36} R. K. Ghosh and G. P. Bhattacharjee, “Parallel breadth-first search algorithms for trees and graphs,” International Journal of Computer Mathematics, vol. 15, no. 1–4, pp. 255–268, Jan. 1984, doi: 10.1080/00207168408803413.
-    
-    \bibitem{37} “Parallel breadth-first search,” Wikipedia. 03-Nov-2019. [Online]. [Accessed: 06-Jan-2020].
-    % \bibitem{37} “Parallel breadth-first search,” Wikipedia. 03-Nov-2019. [Online]. Available: https://en.wikipedia.org/wiki/Parallel_breadth-first_search. [Accessed: 06-Jan-2020].
+
+    \bibitem{37} “Parallel breadth-first search,” Wikipedia. 03-Nov-2019. [Online]. Available: https://en.wikipedia.org/wiki/Parallel{\_}breadth-first{\_}search. [Accessed: 06-Jan-2020].
 
     \bibitem{38} J. Freeman, “Parallel Algorithms for Depth-First Search,” Technical Reports (CIS), Oct. 1991.
+
+    \bibitem{39} “Strongly Connected Components Algorithm Optimized,” Weiming Hu. [Online]. Available: https://weiming-hu.github.io/strongly-connected-components/. [Accessed: 06-Jan-2020].
+
+    \bibitem{40} “Kosaraju’s algorithm,” Wikipedia. 07-Mar-2019.  Available: https://en.wikipedia.org/wiki/Kosaraju's{\_}algorithm. [Accessed: 06-Jan-2020].
+
 
 \end{thebibliography}
 
