@@ -18,7 +18,7 @@
 
 \IEEEtitleabstractindextext{
 \begin{abstract}
-The term big data has quite a significance. It deals with data of huge volumes. This data might be and might not be structured and if structured it might be and might not be of the same data structure. So for different data structures, different types of analytical approaches have to be defined. This paper specifically deals with the analysis of graph data in big data. The focus of this paper will be on distributed computing algorithms. Different types of graph analysis are covered in this paper. There are 4 types of graph analytics\cite{7}, path analysis, connectivity analysis, community analysis, and centrality analysis. Path analysis is used for finding out the shortest distance between two nodes. Connectivity analysis is used for analyzing weaknesses in the network. Community analysis is used to focus on the interactions between nodes. The centrality analysis method is used to find the relevance between each node. Along with these techniques, the paper will investigate Graph Neural Networks. Because of challenges in GNN, many methods were proposed recently\cite{33}. This paper has covered Recurrent Graph Neural Networks, Convolutional Graph Neural Networks, Graph Autoencoders, Spatial-Temporal Graph Neural Networks.
+The term big data has quite a significance. It deals with data of huge volumes. This data might be and might not be structured and if structured it might be and might not be of the same data structure. So for different data structures, different types of analytical approaches have to be defined. This paper specifically deals with the analysis of graph data in big data. The focus of this paper will be on distributed computing algorithms. Different types of graph analysis are covered in this paper. This paper has reviewd path analysis, connectivity analysis, community analysis, and centrality analysis. Path analysis is used for determining a path with minimal distance amongst two nodes. Connectivity analysis is used for analyzing weaknesses in the network. Community analysis is used to focus on the interactions between nodes. The centrality analysis method is used to find the relevance between each node. Along with these techniques, the paper will investigate Graph Neural Networks. Because of challenges in GNN, many methods were proposed recently\cite{33}. This paper has covered Recurrent Graph Neural Networks, Convolutional Graph Neural Networks, Graph Autoencoders, Spatial-Temporal Graph Neural Networks.
 
 \end{abstract}
 
@@ -50,7 +50,7 @@ Path analysis algorithms are used for exploring a graph that may either lead to 
 \subsubsection{Parallel Breadth-First Search}
 To understand parallel breadth-first search, serial or conventional breadth-first search (BFS) will be explored first. Since the paper is dealing with graph-based analysis methods, BFS will be covered for graph implementation rather than tree implementation. The difference between both implementations will also be covered in this section.
 
-The BFS algorithm starts at an arbitrary node in the graph and travels to all nodes at the current level $n$ before moving to the next level $n + 1$ of the graph. The following figure \ref{fig1} shows the order of expansion/exploration of nodes. This example shows a graph without loops in it. This is the major difference between a graph and a tree; a graph may have loops in it, while a tree doesn't have loops. Hence, to avoid the loops, BFS implementation of a graph is different as it requires a mechanism to track visited nodes to avoid unnecessary infinite loops.
+The BFS algorithm starts at an arbitrary node in the graph and travels to all nodes at the current level $n$ and then proceeds to the next level $n + 1$ of the graph. The following figure \ref{fig1} shows the order of expansion/exploration of nodes. This example shows a graph without loops in it. This is the major difference between a graph and a tree; a graph may have loops in it, while a tree doesn't have loops. Hence, to avoid the loops, BFS implementation of a graph is different as it requires a mechanism to track visited nodes to avoid unnecessary infinite loops.
 
 \begin{figure}[!h]
     \centerline{\includegraphics[scale=1]{figures/bfs.pdf}}
@@ -58,7 +58,7 @@ The BFS algorithm starts at an arbitrary node in the graph and travels to all no
     \label{fig1}
 \end{figure}
 
-The problem with serial BFS is that time and memory consumption depends on the number of branches and the depth of the graph. In the worst case, the time and space complexity is O($b^d$) where ${b}$ is branches and ${d}$ is total levels in the graph. Since we are dealing with big data analysis where data is huge, it will consume a lot of time.
+The problem with serial BFS is that time and memory consumption depends on the number of branches and the depth of the graph. In worst case, the time and space complexity is O($b^l$) where ${b}$ is branches and ${l}$ is total levels in the graph. Since we are dealing with big data analysis where data is huge, it will consume a lot of time.
 
 To solve this issue with BFS, the concept of parallelism was introduced. Parallel computing distributes the load to multiple processors hence taking of load from a single process and distributing it to others to reduce the overhead. The parallel version of BFS can be done using two approaches either using shared memory or by using distributed memory. The shared memory implementation of BFS generates Breadth-First Spanning Trees (BFSTs) of a given graph G with $n$ nodes. The time complexity of this step is given by O($log(d).log(n)$) where $d$ is the diameter of G which is far more better than serial BFS with time complexity O($b^d$). The number of processors used for this process depends on the number of nodes; the time complexity is defined by O($n^3$) \cite{36}. If the graph is undirected, the algorithm will generate $n$ BFSTs.
 
@@ -102,7 +102,7 @@ Kosaraju's original proposed algorithms were based on DFS and some implementatio
     \label{fig3}
 \end{figure}
 
-Now second DFS will be performed and as $7$ was the start node previously, this time also it will start from $7$. The order will be then $7-6-5$ which is our first SCC and then starting DFS from $3$, the order will be $3-1-2$ which is our second SCC. Thus, the algorithm pointed out two SCCs in the graph. The time complexity of this algorithm will be O($v + e$) where $v$ is vertices of the graph and $e$ is edges.
+Now second DFS will be performed and as $7$ was the start node previously, this time also it will start from $7$. The order will be then $7-6-5$ which is our first SCC and then starting DFS from $3$, the order will be $3-1-2$ which is our second SCC. Thus, the algorithm pointed out two SCCs in the graph. Time complexity of Kosaraju’s DFS is O($n + e$) where $n$ is nodes of the graph and $e$ is edges.
 
 Kosarju's BFS algorithm also works in the same way; it performs BFS twice instead of DFS.
 
@@ -120,7 +120,7 @@ The algorithm functions in the following way. Consider a node $n$ with neighbors
     \label{fig4}
 \end{figure}
 
-This algorithm performs near-linear time as mentioned by Raghavan et al.\cite{16} which makes it a better contender among other community analysis algorithms. The time complexity is given by O($m + n$) where $m$ is nodes in a graph and $n$ is vertices.
+This algorithm performs near-linear time as mentioned by Raghavan et al.\cite{16} which makes it a better contender among other community analysis algorithms. The time complexity is given by O($n + e$) where $n$ is nodes in a graph and $e$ is edges.
 
 \subsubsection{Strongly Connected Components}
 \subsubsection{Weakly Connected Components}
