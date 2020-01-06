@@ -18,7 +18,7 @@
 
 \IEEEtitleabstractindextext{
 \begin{abstract}
-The term big data has quite significance. It deals with data of huge volumes. This data might be and might not be structured and if structured it might be and might not be of the same data structure. So for different data structures different types of analytical approaches have to be defined. This paper specifically deals with analysis of graph data in big data. The focus of this paper will be on distributed computing algorithms. Different types of graph analysis are covered in this paper. There are 4 types of graph analytics\cite{7}, path analysis, connectivity analysis, community analysis and centrality analysis. Path analysis is used for finding out the shortest distance between two nodes. Connectivity analysis is used for analyzing weaknesses in the network. Community analysis is used to focus on the interactions between nodes. Centrality analysis method is used to find the relevance between each node. Along with these techniques, the paper will investigate Graph Neural Networks. Because of challenges in GNN, many methods were proposed recently. This paper has cover some of those methods. Recurrent Graph Neural Networks, Convolutional Graph Neural Networks, Graph Autoencoders, Spatial-Temporal Graph Neural Networks are some of the most common GNN models\cite{33}.
+The term big data has quite a significance. It deals with data of huge volumes. This data might be and might not be structured and if structured it might be and might not be of the same data structure. So for different data structures, different types of analytical approaches have to be defined. This paper specifically deals with the analysis of graph data in big data. The focus of this paper will be on distributed computing algorithms. Different types of graph analysis are covered in this paper. There are 4 types of graph analytics\cite{7}, path analysis, connectivity analysis, community analysis, and centrality analysis. Path analysis is used for finding out the shortest distance between two nodes. Connectivity analysis is used for analyzing weaknesses in the network. Community analysis is used to focus on the interactions between nodes. The centrality analysis method is used to find the relevance between each node. Along with these techniques, the paper will investigate Graph Neural Networks. Because of challenges in GNN, many methods were proposed recently\cite{33}. This paper has covered Recurrent Graph Neural Networks, Convolutional Graph Neural Networks, Graph Autoencoders, Spatial-Temporal Graph Neural Networks.
 
 \end{abstract}
 
@@ -30,7 +30,7 @@ Big Data Analytics, Centrality Analysis, Community Analysis, Connectivity Analys
 
 \section{Introduction}
 \label{sec:introduction}
-\IEEEPARstart{W}{ith} the introduction of internet in the 90s, there has been tremendous innovation in tech industry. This changed the way organizations, businesses, governments function. It even changed the lifestyle of the people. Major contributions to the tech space were not until early 2000s due to innovations in computational power and during this period, the volume of data generated with introduction of social media and other services for the masses has risen a lot. Data is being created every second of the data. In 2013, Instagram users shared 3600 photos every minute, while in 2019, the number of photos shared every minute reached 46,740. The world internet population has increased from 2.5 billion to 3.7 billion~\cite{1}. It is estimated that by 2020, 40 trillion GB of data would be generated~\cite{2} which means internet user generates nearly 2500000 terabytes of data every day~\cite{1}. Most of the data being generated is contributed by social media on which an average user spends 33\% of his/her online time. This is why in 2019, there are 2.3 billion users active on Facebook~\cite{3}.
+\IEEEPARstart{W}{ith} the introduction of the internet in the 90s, there has been tremendous innovation in the tech industry. This changed the way organizations, businesses, governments function. It even changed the lifestyle of the people. Major contributions to the tech space were not until the early 2000s due to innovations in computational power and during this period, the volume of data generated with the introduction of social media and other services for the masses has risen a lot. Data is being created every second of the data. In 2013, Instagram users shared 3600 photos every minute, while in 2019, the number of photos shared every minute reached 46,740. The world internet population has increased from 2.5 billion to 3.7 billion~\cite{1}. It is estimated that by 2020, 40 trillion GB of data would be generated~\cite{2} which means internet user generates nearly 2500000 terabytes of data every day~\cite{1}. Most of the data being generated is contributed by social media on which an average user spends 33\% of his/her online time. This is why in 2019, there are 2.3 billion users active on Facebook~\cite{3}.
 
 Because of this vast amount of data, there was a need to develop more efficient and cost-effective data storage. This led to the introduction of the term Big Data in early 2005~\cite{4}. Big data is the type of data that has a high variety, large volume, high velocity, greater veracity, and extreme value also it is continuously growing on a large scale. These characteristics of the big data are referred to as the 5Vs. It will not be a surprise that the data is unstructured as it is being collected from multiple sources. Big data can be comprised of logs of the traffic coming in on a website, messages generated on a social media site, attributes of mouse clicks, details of products stored on an e-commerce website, medical data of a hospital, bank transactions, satellite data, and many other sources which generate data.
 
@@ -42,65 +42,59 @@ This paper will discuss some graph analysis methods used on big data in Section 
 
 \section{Literature Review}
 \label{sec:lit_review}
-Often data generated has relations among themselves. This data can be structured or unstructured or a mix of both. Since it is not feasible to understand these relations using the traditional big data analytics techniques, a better model had to be devised. A graph model was proposed to connect the data. Graphs are effective for analyzing, making recommendation systems, and mining social networks. Due to the flexibility of this model it allows large quantities of information from many sources to be quickly absorbed and linked in ways that addressed the limitations in the source structures. A good way of representing the graph model is connections of a social media account; it represents a graphical structure with connections (edges) formed between different accounts (nodes/entities). This model enabled analyzing relationships and deducing interesting patterns between accounts (entities) in the structure. Graph analytics is the term used to define these methods of analysis. It is defined as an alternative to the conventional data warehouse model as a system for allowing analysts to check structured and unstructured data from different sources. Some business use cases of graph analytics include healthcare quality analysis, cybersecurity, and correlation findings.
+Often data generated have relations among themselves. This data can be structured or unstructured or a mix of both. Since it is not feasible to understand these relations using the traditional big data analytics techniques, a better model had to be devised. A graph model was proposed to connect the data. Graphs are effective for analyzing, making recommendation systems, and mining social networks. Due to the flexibility of this model it allows large quantities of information from many sources to be quickly absorbed and linked in ways that addressed the limitations in the source structures. A good way of representing the graph model is connections of a social media account; it represents a graphical structure with connections (edges) formed between different accounts (nodes/entities). This model enabled analyzing relationships and deducing interesting patterns between accounts (entities) in the structure. Graph analytics is a term used to define these methods of analysis. It is defined as an alternative to the conventional data warehouse model as a system for allowing analysts to check structured and unstructured data from different sources. Some business use cases of graph analytics include healthcare quality analysis, cybersecurity, and correlation findings.
 
 \subsection{Path Analysis}
-Path analysis algorithms are used for exploring a graph which may either lead to discovery of new or optimal paths. A path may be decided as an optimal path on basis of the number of hops required to traverse, weights of visited nodes, avoiding/including specific nodes/paths or in some cases based on an optimization function. One of the most common use cases is getting the shortest path using Google Maps directions. Some other applications include but not limited to are customer behavior analysis on an e-commerce website and re-routing in network to fix problems with network capacity. The path analysis algorithms being covered in this paper are Parallel Breadth-First Search~\cite{8}, Parallel Depth-First Search ~\cite{9, 10}, Single-Source Shortest Path~\cite{11}, All-Pairs Shortest Path, Minimum Weight Spanning Tree~\cite{12, 13}, and Random Walk~\cite{14}.
+Path analysis algorithms are used for exploring a graph that may either lead to the discovery of new or optimal paths. A path may be decided as an optimal path on basis of the number of hops required to traverse, weights of visited nodes, avoiding/including specific nodes/paths or in some cases based on an optimization function. One of the most common use cases is getting the shortest path using Google Maps directions. Some other applications include but not limited to are customer behavior analysis on an e-commerce website and re-routing in a network to fix problems with network capacity. The path analysis algorithms being covered in this paper are Parallel Breadth-First Search~\cite{8}, Parallel Depth-First Search ~\cite{9, 10}, Single-Source Shortest Path~\cite{11}, All-Pairs Shortest Path, Minimum Weight Spanning Tree~\cite{12, 13}, and Random Walk~\cite{14}.
 
 \subsubsection{Parallel Breadth-First Search}
-To understand parallel breadth-first search, serial or conventional breadth-first search (BFS) will be explored first. Since, the paper is dealing with graph based analysis methods, BFS will be covered for graph implementation rather than tree implementation. The difference between both implementations will also be covered in this section.
+To understand parallel breadth-first search, serial or conventional breadth-first search (BFS) will be explored first. Since the paper is dealing with graph-based analysis methods, BFS will be covered for graph implementation rather than tree implementation. The difference between both implementations will also be covered in this section.
 
-The BFS algorithm starts at an arbitrary node in the graph and travels to all nodes at current level $n$ before moving to the next level $n + 1$ of the graph. The following figure \ref{fig1} shows the order of expansion/exploration of nodes. This example shows a graph without loops in it. This is the major difference between a graph and a tree; a graph may have loops in it, while a tree doesn't have loops. Hence, to avoid the loops, BFS implementation of a graph is different as it requires a mechanism to track visited nodes to avoid unnecassary infinite loops.
+The BFS algorithm starts at an arbitrary node in the graph and travels to all nodes at the current level $n$ before moving to the next level $n + 1$ of the graph. The following figure \ref{fig1} shows the order of expansion/exploration of nodes. This example shows a graph without loops in it. This is the major difference between a graph and a tree; a graph may have loops in it, while a tree doesn't have loops. Hence, to avoid the loops, BFS implementation of a graph is different as it requires a mechanism to track visited nodes to avoid unnecessary infinite loops.
 
 \begin{figure}[!h]
     \centerline{\includegraphics[scale=1]{figures/bfs.pdf}}
-    \caption{The numbers depict order of traversal of nodes in a BFS implementation}
+    \caption{The numbers depict the order of traversal of nodes in a BFS implementation}
     \label{fig1}
 \end{figure}
 
-The problem with serial BFS is that time and memory consumption depends on the number of branches and the depth of the graph. In worst case the time and space complexity is O($b^d$) where ${b}$ is branches and ${d}$ is total levels in the graph. Since we are dealing with big data analysis where data is of huge size, it will consume a lot of time.
+The problem with serial BFS is that time and memory consumption depends on the number of branches and the depth of the graph. In the worst case, the time and space complexity is O($b^d$) where ${b}$ is branches and ${d}$ is total levels in the graph. Since we are dealing with big data analysis where data is huge, it will consume a lot of time.
 
-To solve this issue with BFS, concept of parallelism was introduced. Parallel computing distributes the load to multiple processors hence taking of load from a single process and distributing it to others to reduce the overhead. The parallel version of BFS can be done using two approaches either using shared memory or by using distributed memory. The shared memory implementation of BFS generates Breadth First Spanning Trees (BFSTs) of a given graph G with $n$ nodes. The time complexity of this step is given by O($log(d).log(n)$) where $d$ is the diameter of G which is far more better than serial BFS with time complexity O($b^d$). The number of processors used for this process depends on the number of nodes; the time complexity is defined by O($n^3$) \cite{36}. If the graph is undirected, the algorithm will generate $n$ BFSTs.
+To solve this issue with BFS, the concept of parallelism was introduced. Parallel computing distributes the load to multiple processors hence taking of load from a single process and distributing it to others to reduce the overhead. The parallel version of BFS can be done using two approaches either using shared memory or by using distributed memory. The shared memory implementation of BFS generates Breadth-First Spanning Trees (BFSTs) of a given graph G with $n$ nodes. The time complexity of this step is given by O($log(d).log(n)$) where $d$ is the diameter of G which is far more better than serial BFS with time complexity O($b^d$). The number of processors used for this process depends on the number of nodes; the time complexity is defined by O($n^3$) \cite{36}. If the graph is undirected, the algorithm will generate $n$ BFSTs.
 
-In the distributed memory version of BFS, each process has their own memory and they have to share messages amongst each other to share their data. Since there is a overhead of communication in this approach, shared memory BFS will provide higher bandwith with low latency \cite{37}.
+In the distributed memory version of BFS, each process has its memory and they have to share messages amongst each other to share their data. Since there is an overhead of communication in this approach, shared memory BFS will provide higher bandwidth with low latency \cite{37}.
 
 \subsubsection{Parallel Depth-First Search}
 Parallel depth-first search also deals with parallelism as discussed in the previous section. To understand this, it's necessary to go through serial depth-first search (DFS).
 
-The DFS algorithm starts at an arbitrary node and travels deep into a path before coming back a step and exploring the next path. This algorithm is used on a hierarchical data. Since the algorithm might face issues with infinite loops due to the fact we are traversing on a graph, similarly to BFS, DFS for graphs also have to be implemented with a mechanism to store visited nodes. The time complexity of DFS is similar to BFS, O($b^d$) while the space complexity is O($d$).
+The DFS algorithm starts at an arbitrary node and travels deep into a path before coming back a step and exploring the next path. This algorithm is used on hierarchical data. Since the algorithm might face issues with infinite loops due to the fact we are traversing on a graph, similarly to BFS, DFS for graphs also have to be implemented with a mechanism to store visited nodes. The time complexity of DFS is similar to BFS, O($b^d$) while the space complexity is O($d$).
 
-Serial DFS also faces same problem as serial BFS, that is it will also consume a lot of time for big data analysis. So to avoid this, parallel DFS was proposed. To parallelize DFS, the graph is splitted among different processors. Each processor performs it's task independently until it finishes it after which the processor requests unfinished section of the graph from other processors. Some of the models of implementation of parallel DFS include shared memory models, boolean circuits, and parallel comparison trees\cite{38}.  
+Serial DFS also faces the same problem as serial BFS, that is it will also consume a lot of time for big data analysis. So to avoid this, parallel DFS was proposed. To parallelize DFS, the graph is split among different processors. Each processor performs it's task independently until it finishes it after which the processor requests an unfinished section of the graph from other processors. Some of the models of implementation of parallel DFS include shared memory models, boolean circuits, and parallel comparison trees\cite{38}.  
 
-There are many implementations of parallel DFS and most of them showed logarithmic running time\cite{38}. A logarithmic running time is much more efficient than an exponential running time which is showed by a serial DFS.
+There are many implementations of parallel DFS and most of them showed logarithmic running time\cite{38}. Logarithmic running time is much more efficient than an exponential running time which is showed by a serial DFS.
 
 \subsubsection{Single-Source Shortest Path}
-
-
 \subsubsection{All-Pairs Shortest Path}
-
-
 \subsubsection{Minimum Weight Spanning Tree}
-
-
 \subsubsection{Random Walk}
 
 \subsection{Connectivity Analysis}
-Connectivity analysis helps in identifying the strength of connections/vertices between two nodes in a graph. It is most commonly used for analyzing weaknesses in a graph network. Before diving into the algorithms, it's important to understand how strength of a connection is defined in a graph.
+Connectivity analysis helps in identifying the strength of connections/vertices between two nodes in a graph. It is most commonly used for analyzing weaknesses in a graph network. Before diving into the algorithms, it's important to understand how the strength of a connection is defined in a graph.
 
-A component comprises of 2 or more nodes connected with each other. A concept of Strongly Connected Components (SCCs)\cite{39} is used. A component is said to be strongly connected when a given pair of nodes in the component has connections with each other.
+A component comprises two or more nodes connected. A concept of Strongly Connected Components (SCCs)\cite{39} is used. A component is said to be strongly connected when a given pair of nodes in the component has connections with each other.
 
 \begin{figure}[!h]
     \centerline{\includegraphics[scale=0.75]{figures/scc.pdf}}
-    \caption{Graph shown has two SCCs with one node connecting both of them}
+    \caption{The graph shown has two SCCs with one node connecting both of them}
     \label{fig2}
 \end{figure}
 
-In the above figure \ref{fig2}, there are two SCCs, one with {$1, 2, 3$} nodes and the other with {$7, 5, 6$} nodes connected with node $4$. As it can be seen that $1$ is connected with $2$ and $2$ is connected with $3$ which is then connected with $1$, thus it is said that both of these components are strongly connected.
+In the above figure \ref{fig2}, there are two SCCs, one with {$1, 2, 3$} nodes and the other with {$7, 5, 6$} nodes connected with node $4$. As can be seen that $1$ is connected with $2$ and $2$ is connected with $3$ which is then connected with $1$, thus it is said that both of these components are strongly connected.
 
-SCCs help in forming clusters in a graph. With the help of such clusters, analysis can be performed in the network. Some use cases of connectivity analysis includes social network and internet network analysis. Now the problem lies in finding out such SCCs. DFS and BFS are helpful in finding such components. Kosaraju devised an algorithm which in linear time helped in finding out SCCs\cite{40}. This paper will cover Kosaraju's algorithm's modification on BFS and DFS.
+SCCs help in forming clusters in a graph. With the help of such clusters, analysis can be performed in the network. Some use cases of connectivity analysis includes social network and internet network analysis. Now the problem lies in finding out such SCCs. DFS and BFS help find such components. Kosaraju devised an algorithm which in linear time helped in finding out SCCs\cite{40}. This paper will cover Kosaraju's algorithm's modification on BFS and DFS.
 
 \subsubsection{Kosaraju's BFS and DFS}
-Kosaraju's original proposed algorithms was based on DFS and some implementations exists of it on BFS. The DFS implementation does a simple trick by performing DFS two times on the same graph. Taking figure \ref{fig2} as example, the algorithm will perform first DFS on the graph. It will reverse the directions in the graph and start at $7$, explore in the order $7-6-5-4-1-3-2$. Now the node which finished first or visited at the end will be assigned the finisihing position starting from 1. The nodes will be renamed with their corresponding positions as shown below in figure \ref{fig3}. 
+Kosaraju's original proposed algorithms were based on DFS and some implementations exist of it on BFS. The DFS implementation does a simple trick by performing DFS two times on the same graph. Taking figure \ref{fig2} as an example, the algorithm will perform the first DFS on the graph. It will reverse the directions in the graph and start at $7$, explore in the order $7-6-5-4-1-3-2$. Now the node which finished first or visited at the end will be assigned the finishing position starting from 1. The nodes will be renamed with their corresponding positions as shown below in figure \ref{fig3}. 
 
 \begin{figure}[!h]
     \centerline{\includegraphics[scale=0.75]{figures/scc2.pdf}}
@@ -113,12 +107,12 @@ Now second DFS will be performed and as $7$ was the start node previously, this 
 Kosarju's BFS algorithm also works in the same way; it performs BFS twice instead of DFS.
 
 \subsection{Community Analysis}
-A community in a graph network is defined by a group of nodes which have dense connections amongst themselves and sparse connections with the other group of nodes. Community analysis points out interactions between nodes. It is used for clustering nodes with similar attributes. This analysis also helps in analyzing how nodes are clustered or partitioned. The strength of a particular group can also be determined with this analysis. Community analysis is used in indentifying proteins involved in a biochemical process, recommendations for a group of people, and evaluating social networks. 
+A community in a graph network is defined by a group of nodes that have dense connections amongst themselves and sparse connections with the other group of nodes. Community analysis points out interactions between nodes. It is used for clustering nodes with similar attributes. This analysis also helps in analyzing how nodes are clustered or partitioned. The strength of a particular group can also be determined by this analysis. Community analysis is used in identifying proteins involved in a biochemical process, recommendations for a group of people, and evaluating social networks. 
 
 \subsubsection{Label Propagation}
 Raghavan et al. proposed this algorithm back in 2007\cite{16}. The algorithm worked on exploring communities in a graph network. 
 
-The algorithm functions in the following way. Consider a node $n$ with neighbors $n1, n2, n3$ and so on also every node has a tag identifying them with which community they are a member of. Therefore, $n$ will identify its community based on its neighbors' communities. So the algorithm starts with assigning a unique tag on all nodes present in the graph; this part of the algorithm suggests that it is a sem-supervised algorithm. These tags will then propagate in the network. On each step of the propagation, nodes will update their tags to the tag which is assgined to the majority of its neighbors. When the propagation ends, nodes are grouped based on their tags. This process results in formation of communities. The following figure \ref{fig4} explains how step by step propagation leads to community formations.
+The algorithm functions in the following way. Consider a node $n$ with neighbors $n1, n2, n3$ and so on also every node has a tag identifying them with which community they are a member of. Therefore, $n$ will identify its community based on its neighbors' communities. So the algorithm starts with assigning a unique tag on all nodes present in the graph; this part of the algorithm suggests that it is a sem-supervised algorithm. These tags will then propagate in the network. On each step of the propagation, nodes will update their tags to the tag which is assigned to the majority of its neighbors. When the propagation ends, nodes are grouped based on their tags. This process results in the formation of communities. The following figure \ref{fig4} explains how step by step propagation leads to community formations.
 
 \begin{figure}[!h]
     \centerline{\includegraphics[scale=0.35]{figures/label_propagation.pdf}}
@@ -126,7 +120,7 @@ The algorithm functions in the following way. Consider a node $n$ with neighbors
     \label{fig4}
 \end{figure}
 
-This algorithm performs near linear time as mentioned by Raghavan et al.\cite{16} which makes it a better contender among other community analysis aglorithms. The time complexity is given by O($m + n$) where $m$ is nodes in a graph and $n$ is vertices.
+This algorithm performs near-linear time as mentioned by Raghavan et al.\cite{16} which makes it a better contender among other community analysis algorithms. The time complexity is given by O($m + n$) where $m$ is nodes in a graph and $n$ is vertices.
 
 \subsubsection{Strongly Connected Components}
 \subsubsection{Weakly Connected Components}
@@ -139,7 +133,7 @@ This algorithm performs near linear time as mentioned by Raghavan et al.\cite{16
 Centrality analysis is used to identify the relevance between each node. It measures the importance of nodes. It is used to find the influence of people in a social network, used to get the most popular web page based on access, and key nodes in a network. Although this method was introduced specifically for social network analysis, it has been adopted in many other fields.
 
 \subsubsection{Degree Centrality}
-Degree centrality was proposed by Freeman in 1979\cite{25}. It is used for measuring the relationships of a node. For a directed graph, it divides the relationships into indegree and outdegree where indegree is the number of connections coming in while outdegree is the number of connections going out of the node. It shows the activity of a node. In simple terms, it states higher the number of neighbors more important the node is. This way degree centrality is used for indentifying most influential accounts on Twitter or other social networking platforms. Since it just involves propagating through the network and calculate the degree(inwards and outwards connections) of each node, it is a simple method to implement. The following figure \ref{fig5} depicts a network of nodes with degree centrality algorithm applied over it.
+Degree centrality was proposed by Freeman in 1979\cite{25}. It is used for measuring the relationships of a node. For a directed graph, it divides the relationships into indegree and outdegree where indegree is the number of connections coming in while outdegree is the number of connections going out of the node. It shows the activity of a node. In simple terms, it states higher the number of neighbors more important the node is. This way degree centrality is used for identifying most influential accounts on Twitter or other social networking platforms. Since it just involves propagating through the network and calculates the degree(inwards and outwards connections) of each node, it is a simple method to implement. The following figure \ref{fig5} depicts a network of nodes with degree centrality algorithm applied over it.
 
 \begin{figure}[!h]
     \centerline{\includegraphics[scale=0.45]{figures/degree_centrality.pdf}}
@@ -150,6 +144,16 @@ Degree centrality was proposed by Freeman in 1979\cite{25}. It is used for measu
 The time complexity of this algorithm thus will be O($v$) where $v$ is vertices of the graph.
 
 \subsubsection{Eigenvector Centrality}
+The eigenvector centrality method was proposed by Bonacich\cite{26}. It is the influence a node has in a network. A node is scored based on its connections with nodes with high scores. This means, a node connected to a few other nodes but these nodes have high influence, then the former node's eigenvector value will be very high. It can be inferred that connecting to a few highly influential nodes will give a boost in the eigenvector value.
+
+When the algorithm initializes, every node starts with an equal or zero value. As the algorithm computes scores, nodes with a higher number of connections will get high scores. These high scores are then propagated to their connected nodes. The algorithm performs a few iterations until the value stabilizes. Thus generating eigenvector value for all nodes. The following figure \ref{fig6} shows nodes connected.
+
+\begin{figure}[!h]
+    \centerline{\includegraphics[scale=0.45]{figures/eigenvector_centrality.pdf}}
+    \caption{Here, X has the highest eigenvector value as it is connected to the highest number of significant or high influence nodes}
+    \label{fig6}
+\end{figure}
+
 \subsubsection{Katz Centrality}
 \subsubsection{PageRank Centrality}
 \subsubsection{Closeness Centrality}
@@ -248,5 +252,6 @@ The time complexity of this algorithm thus will be O($v$) where $v$ is vertices 
 
 
 \end{thebibliography}
+
 
 \end{document}
