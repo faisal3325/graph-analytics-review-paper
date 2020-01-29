@@ -86,6 +86,8 @@ SSSP is capable of computing shortest path on graphs with "negative cycle" which
 
 In the above figure \ref{fig2}, shortest path of a graph is computed step-by-step using SSSP algorithm. Path costs are given. In step 1, all the nodes except start is initialized with positive infinity. Second step starts from the start node and traverses to all it's neighbors. As the algorithm moves to it's neighbors, path cost is assigned to the weights of the visited node. Now, in step 3, it can be noted that the node with weight 10 is replaced by 5 and the path from start to it is removed. The algorithm has computed a shortest path (path with least cost) from an alternate route even though it involves visiting one node before reaching to destination. This way, it computes and replaces weights as it proceeds to move through the graph. In step 4, we have the final path which costs just 6 to traverse through all the 5 nodes.
 
+The time complexity of SSSP is given by O($V*E$) while the space complexity is O($V$) where $V$ denotes vertices and $E$ is edges of a graph.
+
 \subsubsection{All-Pairs Shortest Path}
 \subsubsection{Minimum Weight Spanning Tree}
 \subsubsection{Random Walk}
