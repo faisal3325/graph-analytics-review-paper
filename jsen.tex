@@ -50,7 +50,7 @@ Path analysis algorithms are used for exploring a graph that may either lead to 
 \subsubsection{Parallel Breadth-First Search}
 To understand parallel breadth-first search, serial or conventional breadth-first search (BFS) will be explored first. Since the paper is dealing with graph-based analysis methods, BFS will be covered for graph implementation rather than tree implementation. The difference between both implementations will also be covered in this section.
 
-The BFS algorithm starts at an arbitrary node in the graph and travels to all nodes at the current level $n$ and then proceeds to the next level $n + 1$ of the graph. The following figure \ref{fig1} shows the order of expansion/exploration of nodes. This example shows a graph without loops in it. This is the major difference between a graph and a tree; a graph may have loops in it, while a tree doesn't have loops. Hence, to avoid the loops, BFS implementation of a graph is different as it requires a mechanism to track visited nodes to avoid unnecessary infinite loops.
+The BFS algorithm starts at an arbitrary node in the graph and travels to all nodes at the current level $n$ and then proceeds to the next level $n + 1$ of the graph. The following figure \ref{fig1} shows the order of expansion/exploration of nodes. This example shows a graph without loops in it. This is the major difference between a graph and a tree; a graph may have loops in it, while a tree does not have loops. Hence, to avoid the loops, BFS implementation of a graph is different as it requires a mechanism to track visited nodes to avoid unnecessary infinite loops.
 
 \begin{figure}[!h]
     \centerline{\includegraphics[scale=1]{figures/bfs.pdf}}
@@ -65,11 +65,11 @@ To solve this issue with BFS, the concept of parallelism was introduced. Paralle
 In the distributed memory version of BFS, each process has its memory and they have to share messages amongst each other to share their data. Since there is an overhead of communication in this approach, shared memory BFS will provide higher bandwidth with low latency \cite{37}.
 
 \subsubsection{Parallel Depth-First Search}
-Parallel depth-first search also deals with parallelism as discussed in the previous section. To understand this, it's necessary to go through serial depth-first search (DFS).
+Parallel depth-first search also deals with parallelism as discussed in the previous section. To understand this, its necessary to go through serial depth-first search (DFS).
 
 The DFS algorithm starts at an arbitrary node and travels deep into a path before coming back a step and exploring the next path. This algorithm is used on hierarchical data. Since the algorithm might face issues with infinite loops due to the fact we are traversing on a graph, similarly to BFS, DFS for graphs also have to be implemented with a mechanism to store visited nodes. The time complexity of DFS is similar to BFS, O($b^d$) while the space complexity is O($d$).
 
-Serial DFS also faces the same problem as serial BFS, that is it will also consume a lot of time for big data analysis. So to avoid this, parallel DFS was proposed. To parallelize DFS, the graph is split among different processors. Each processor performs it's task independently until it finishes it after which the processor requests an unfinished section of the graph from other processors. Some of the models of implementation of parallel DFS include shared memory models, boolean circuits, and parallel comparison trees\cite{38}.  
+Serial DFS also faces the same problem as serial BFS, that is it will also consume a lot of time for big data analysis. So to avoid this, parallel DFS was proposed. To parallelize DFS, the graph is split among different processors. Each processor performs its task independently until it finishes it after which the processor requests an unfinished section of the graph from other processors. Some of the models of implementation of parallel DFS include shared memory models, boolean circuits, and parallel comparison trees\cite{38}.  
 
 There are many implementations of parallel DFS and most of them showed logarithmic running time\cite{38}. Logarithmic running time is much more efficient than an exponential running time which is showed by a serial DFS.
 
@@ -84,17 +84,26 @@ SSSP is capable of computing shortest path on graphs with "negative cycle" which
     \label{fig2}
 \end{figure}
 
-In the above figure \ref{fig2}, shortest path of a graph is computed step-by-step using SSSP algorithm. Path costs are given. In step 1, all the nodes except start is initialized with positive infinity. Second step starts from the start node and traverses to all it's neighbors. As the algorithm moves to it's neighbors, path cost is assigned to the weights of the visited node. Now, in step 3, it can be noted that the node with weight 10 is replaced by 5 and the path from start to it is removed. The algorithm has computed a shortest path (path with least cost) from an alternate route even though it involves visiting one node before reaching to destination. This way, it computes and replaces weights as it proceeds to move through the graph. In step 4, we have the final path which costs just 6 to traverse through all the 5 nodes.
+In the above figure \ref{fig2}, shortest path of a graph is computed step-by-step using SSSP algorithm. Path costs are given. In step 1, all the nodes except start is initialized with positive infinity. Second step starts from the start node and traverses to all its neighbors. As the algorithm moves to its neighbors, path cost is assigned to the weights of the visited node. Now, in step 3, it can be noted that the node with weight 10 is replaced by 5 and the path from start to it is removed. The algorithm has computed a shortest path (path with least cost) from an alternate route even though it involves visiting one node before reaching to destination. This way, it computes and replaces weights as it proceeds to move through the graph. In step 4, we have the final path which costs just 6 to traverse through all the 5 nodes.
 
 The time complexity of SSSP is given by O($V*E$) while the space complexity is O($V$) where $V$ denotes vertices and $E$ is edges of a graph.
 
 \subsubsection{All-Pairs Shortest Path}
-To understand All-Pairs Shortest Path (APSP) algorithm, the problem should be discussed first. APSP problem is for finding minimum distance between every vertices of a particular edge. The graph should be directed with weights. To solve this APSP problem, multiple variants of APSP algorithms were proposed\cite{43, 44, 45, 46}. This paper will look into 
+To understand All-Pairs Shortest Path (APSP) algorithm, the problem should be discussed first. APSP problem is for finding minimum distance between every vertices of a particular edge. The graph should be directed with weights. To solve this APSP problem, multiple variants of APSP algorithms were proposed\cite{43, 44, 45, 46}. This paper will first look into Floyd-Warshall algorithm which is quite popular amongst other APSP algorithms. Unlike SSSP, this algorithm does not work on "negative cycles" graph however, it can work on both directed and undirected graphs.
+
+The output of this algorithm is a matrix representing the shortest distance from a node to other nodes. When a node is unreachable to an another node, the algorithm returns infinity which signifies no path can be formed. The figure shown below  
+
+
+
+The time complexity of this algorithm is O($n^3$) where $n$ is number of vertices and space complexity is given by O($n^2$). Some common use cases of APSP algorithm are
+
+
 \subsubsection{Minimum Weight Spanning Tree}
+Minimum Weight Spanning Tree (MST) is applied on 
 \subsubsection{Random Walk}
 
 \subsection{Connectivity Analysis}
-Connectivity analysis helps in identifying the strength of connections/vertices between two nodes in a graph. It is most commonly used for analyzing weaknesses in a graph network. Before diving into the algorithms, it's important to understand how the strength of a connection is defined in a graph.
+Connectivity analysis helps in identifying the strength of connections/vertices between two nodes in a graph. It is most commonly used for analyzing weaknesses in a graph network. Before diving into the algorithms, its important to understand how the strength of a connection is defined in a graph.
 
 A component comprises two or more nodes connected. A concept of Strongly Connected Components (SCCs)\cite{39} is used. A component is said to be strongly connected when a given pair of nodes in the component has connections with each other.
 
