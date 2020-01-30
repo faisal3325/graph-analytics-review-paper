@@ -86,7 +86,7 @@ SSSP is capable of computing shortest path on graphs with "negative cycle" which
 
 In the above figure \ref{fig2}, shortest path of a graph is computed step-by-step using SSSP algorithm. Path costs are given. In step 1, all the nodes except start is initialized with positive infinity. Second step starts from the start node and traverses to all its neighbors. As the algorithm moves to its neighbors, path cost is assigned to the weights of the visited node. Now, in step 3, it can be noted that the node with weight 10 is replaced by 5 and the path from start to it is removed. The algorithm has computed a shortest path (path with least cost) from an alternate route even though it involves visiting one node before reaching to destination. This way, it computes and replaces weights as it proceeds to move through the graph. In step 4, we have the final path which costs just 6 to traverse through all the 5 nodes.
 
-The time complexity of SSSP is given by O($V*E$) while the space complexity is O($V$) where $V$ denotes vertices and $E$ is edges of a graph.
+The time complexity of SSSP is given by O($V*E$) while the space complexity is O($V$) where $V$ denotes vertices and $E$ is edges of a graph. It is used for detecting link failures in a network and come up with new links or routes in no time.
 
 \subsubsection{All-Pairs Shortest Path}
 To understand All-Pairs Shortest Path (APSP) algorithm, the problem should be discussed first. APSP problem is for finding minimum distance between every vertices of a particular edge. The graph should be directed with weights. To solve this APSP problem, multiple variants of APSP algorithms were proposed\cite{43, 44, 45, 46}. This paper will first look into Floyd-Warshall algorithm which is quite popular amongst other APSP algorithms. Unlike SSSP, this algorithm does not work on "negative cycles" graph however, it can work on both directed and undirected graphs.
@@ -99,7 +99,18 @@ The time complexity of this algorithm is O($n^3$) where $n$ is number of vertice
 
 
 \subsubsection{Minimum Weight Spanning Tree}
-Minimum Weight Spanning Tree (MST) is applied on 
+Minimum Weight Spanning Tree (MST) is applied on a tree where a path needs to be traced with minimum weight among all nodes. MST is used mostly to make clusters in a graph. K-Means is used along with MST to find clusters. MST was first developed by Borůvka in 1926\cite{47}. The most famous known adoption of Borůvka's algorithm was done by Jarnik in 1930\cite{48} which is sometimes called as Prim's algorithm as he rediscovered and republished it a few years later\cite{49}. Similar to SSSP, Jarnik's algorithm can be used on "negative cycle" graphs.
+
+\begin{figure}[!h]
+    \centerline{\includegraphics[scale=0.55]{figures/mst.pdf}}
+    \caption{Step wise working of MST on a graph}
+    \label{fig3}
+\end{figure}
+
+In above figure \ref{fig3}, MST is shown in action based on Jarnik's algorithm. In step 1, node 1 is picked up and its neighbors are assigned the path cost as a key-value pair. Node 1 is added to a list, hence darkened. In step 2, the lowest key-value pair among 7 and 2 is picked up, 2 is the lowest. Its neighbors is then assigned the weight as a key-value pair and 2 is added to the list. Similarly, in step 3 also 5 is assigned its weight. The algorithm will repeat this process until all nodes are added to the list. Now the order in which the nodes are picked up is our the path of the tree. It is noticed that individual node pair paths are considered rather than the whole tree while formulating the path.
+
+Time complexity of this algorithm is O($v^2$) where $v$ is the number of vertices. This algorithm is used for analysing correlations between nodes in a graph. MST has been implemented to minimize commute cost in Papua New Guinea\cite{13} and for investigating molecular structure of Hepatitis C\cite{50}.
+
 \subsubsection{Random Walk}
 
 \subsection{Connectivity Analysis}
@@ -110,20 +121,20 @@ A component comprises two or more nodes connected. A concept of Strongly Connect
 \begin{figure}[!h]
     \centerline{\includegraphics[scale=0.75]{figures/scc.pdf}}
     \caption{The graph shown has two SCCs with one node connecting both of them}
-    \label{fig3}
+    \label{fig4}
 \end{figure}
 
-In the above figure \ref{fig3}, there are two SCCs, one with {$1, 2, 3$} nodes and the other with {$7, 5, 6$} nodes connected with node $4$. As can be seen that $1$ is connected with $2$ and $2$ is connected with $3$ which is then connected with $1$, thus it is said that both of these components are strongly connected.
+In the above figure \ref{fig4}, there are two SCCs, one with {$1, 2, 3$} nodes and the other with {$7, 5, 6$} nodes connected with node $4$. As can be seen that $1$ is connected with $2$ and $2$ is connected with $3$ which is then connected with $1$, thus it is said that both of these components are strongly connected.
 
 SCCs help in forming clusters in a graph. With the help of such clusters, analysis can be performed in the network. Some use cases of connectivity analysis includes social network and internet network analysis. Now the problem lies in finding out such SCCs. DFS and BFS help find such components. Kosaraju devised an algorithm which in linear time helped in finding out SCCs\cite{40}. This paper will cover Kosaraju's algorithm's modification on BFS and DFS.
 
 \subsubsection{Kosaraju's BFS and DFS}
-Kosaraju's original proposed algorithms were based on DFS and some implementations exist of it on BFS. The DFS implementation does a simple trick by performing DFS two times on the same graph. Taking figure \ref{fig3} as an example, the algorithm will perform the first DFS on the graph. It will reverse the directions in the graph and start at $7$, explore in the order $7-6-5-4-1-3-2$. Now the node which finished first or visited at the end will be assigned the finishing position starting from 1. The nodes will be renamed with their corresponding positions as shown below in figure \ref{fig4}. 
+Kosaraju's original proposed algorithms were based on DFS and some implementations exist of it on BFS. The DFS implementation does a simple trick by performing DFS two times on the same graph. Taking figure \ref{fig4} as an example, the algorithm will perform the first DFS on the graph. It will reverse the directions in the graph and start at $7$, explore in the order $7-6-5-4-1-3-2$. Now the node which finished first or visited at the end will be assigned the finishing position starting from 1. The nodes will be renamed with their corresponding positions as shown below in figure \ref{fig5}. 
 
 \begin{figure}[!h]
     \centerline{\includegraphics[scale=0.75]{figures/scc2.pdf}}
     \caption{Nodes renamed with their position after the first DFS}
-    \label{fig4}
+    \label{fig5}
 \end{figure}
 
 Now second DFS will be performed and as $7$ was the start node previously, this time also it will start from $7$. The order will be then $7-6-5$ which is our first SCC and then starting DFS from $3$, the order will be $3-1-2$ which is our second SCC. Thus, the algorithm pointed out two SCCs in the graph. Time complexity of Kosaraju’s DFS is O($n + e$) where $n$ is nodes of the graph and $e$ is edges.
@@ -136,12 +147,12 @@ A community in a graph network is defined by a group of nodes that have dense co
 \subsubsection{Label Propagation}
 Raghavan et al. proposed this algorithm back in 2007\cite{16}. The algorithm worked on exploring communities in a graph network. 
 
-The algorithm functions in the following way. Consider a node $n$ with neighbors $n1, n2, n3$ and so on also every node has a tag identifying them with which community they are a member of. Therefore, $n$ will identify its community based on its neighbors' communities. So the algorithm starts with assigning a unique tag on all nodes present in the graph; this part of the algorithm suggests that it is a sem-supervised algorithm. These tags will then propagate in the network. On each step of the propagation, nodes will update their tags to the tag which is assigned to the majority of its neighbors. When the propagation ends, nodes are grouped based on their tags. This process results in the formation of communities. The following figure \ref{fig5} explains how step by step propagation leads to community formations.
+The algorithm functions in the following way. Consider a node $n$ with neighbors $n1, n2, n3$ and so on also every node has a tag identifying them with which community they are a member of. Therefore, $n$ will identify its community based on its neighbors' communities. So the algorithm starts with assigning a unique tag on all nodes present in the graph; this part of the algorithm suggests that it is a sem-supervised algorithm. These tags will then propagate in the network. On each step of the propagation, nodes will update their tags to the tag which is assigned to the majority of its neighbors. When the propagation ends, nodes are grouped based on their tags. This process results in the formation of communities. The following figure \ref{fig6} explains how step by step propagation leads to community formations.
 
 \begin{figure}[!h]
     \centerline{\includegraphics[scale=0.35]{figures/label_propagation.pdf}}
     \caption{(a) Step 1- Random tags have been initialized which is a sem-supervised method, (b) Step 2- In this step tags are adopted from neighbors, and (c) Step 3- Finally all nodes have been assigned tags}
-    \label{fig5}
+    \label{fig6}
 \end{figure}
 
 This algorithm performs near-linear time as mentioned by Raghavan et al.\cite{16} which makes it a better contender among other community analysis algorithms. The time complexity is given by O($n + e$) where $n$ is nodes in a graph and $e$ is edges.
@@ -157,12 +168,12 @@ This algorithm performs near-linear time as mentioned by Raghavan et al.\cite{16
 Centrality analysis is used to identify the relevance between each node. It measures the importance of nodes. It is used to find the influence of people in a social network, used to get the most popular web page based on access, and key nodes in a network. Although this method was introduced specifically for social network analysis, it has been adopted in many other fields.
 
 \subsubsection{Degree Centrality}
-Degree centrality was proposed by Freeman in 1979\cite{25}. It is used for measuring the relationships of a node. For a directed graph, it divides the relationships into indegree and outdegree where indegree is the number of connections coming in while outdegree is the number of connections going out of the node. It shows the activity of a node. In simple terms, it states higher the number of neighbors more important the node is. This way degree centrality is used for identifying most influential accounts on Twitter or other social networking platforms. Since it just involves propagating through the network and calculates the degree(inwards and outwards connections) of each node, it is a simple method to implement. The following figure \ref{fig6} depicts a network of nodes with degree centrality algorithm applied over it.
+Degree centrality was proposed by Freeman in 1979\cite{25}. It is used for measuring the relationships of a node. For a directed graph, it divides the relationships into indegree and outdegree where indegree is the number of connections coming in while outdegree is the number of connections going out of the node. It shows the activity of a node. In simple terms, it states higher the number of neighbors more important the node is. This way degree centrality is used for identifying most influential accounts on Twitter or other social networking platforms. Since it just involves propagating through the network and calculates the degree(inwards and outwards connections) of each node, it is a simple method to implement. The following figure \ref{fig7} depicts a network of nodes with degree centrality algorithm applied over it.
 
 \begin{figure}[!h]
     \centerline{\includegraphics[scale=0.45]{figures/degree_centrality.pdf}}
     \caption{As it can be noticed in the figure, the number of inward connections in node A is 9, node B has 5, and node C has 10}
-    \label{fig6}
+    \label{fig7}
 \end{figure}
 
 The time complexity of this algorithm thus will be O($v$) where $v$ is vertices of the graph.
@@ -170,12 +181,12 @@ The time complexity of this algorithm thus will be O($v$) where $v$ is vertices 
 \subsubsection{Eigenvector Centrality}
 The eigenvector centrality method was proposed by Bonacich\cite{26}. It is the influence a node has in a network. A node is scored based on its connections with nodes with high scores. This means, a node connected to a few other nodes but these nodes have high influence, then the former node's eigenvector value will be very high. It can be inferred that connecting to a few highly influential nodes will give a boost in the eigenvector value.
 
-When the algorithm initializes, every node starts with an equal or zero value. As the algorithm computes scores, nodes with a higher number of connections will get high scores. These high scores are then propagated to their connected nodes. The algorithm performs a few iterations until the value stabilizes. Thus generating eigenvector value for all nodes. The following figure \ref{fig7} shows nodes connected.
+When the algorithm initializes, every node starts with an equal or zero value. As the algorithm computes scores, nodes with a higher number of connections will get high scores. These high scores are then propagated to their connected nodes. The algorithm performs a few iterations until the value stabilizes. Thus generating eigenvector value for all nodes. The following figure \ref{fig8} shows nodes connected.
 
 \begin{figure}[!h]
     \centerline{\includegraphics[scale=0.45]{figures/eigenvector_centrality.pdf}}
     \caption{Here, X has the highest eigenvector value as it is connected to the highest number of significant or high influence nodes}
-    \label{fig7}
+    \label{fig8}
 \end{figure}
 
 \subsubsection{Katz Centrality}
@@ -285,6 +296,14 @@ When the algorithm initializes, every node starts with an equal or zero value. A
     \bibitem{45} W. Peng, X. Hu, F. Zhao, and J. Su, “A Fast Algorithm to Find All-Pairs Shortest Paths in Complex Networks,” Procedia Computer Science, vol. 9, pp. 557–566, 2012, doi: 10.1016/j.procs.2012.04.060.
 
     \bibitem{46} T. M. Chan, “All-Pairs Shortest Paths with Real Weights in O(n 3/log n) Time,” Algorithmica, vol. 50, no. 2, pp. 236–243, Feb. 2008, doi: 10.1007/s00453-007-9062-1.
+
+    \bibitem{47} J. Nešetřil, E. Milková, and H. Nešetřilová, “Otakar Borůvka on minimum spanning tree problem Translation of both the 1926 papers, comments, history,” Discrete Mathematics, vol. 233, no. 1, pp. 3–36, Apr. 2001, doi: 10.1016/S0012-365X(00)00224-7.
+
+    \bibitem{48} V. Jarník, “O jistém problému minimálním. (Z dopisu panu O. Borůvkovi).”
+    
+    \bibitem{49} BSTJ 36: 6. November 1957: Shortest Connection Networks And Some Generalizations. (Prim, R.C.). 1957.
+
+    \bibitem{50} E. Spada et al., “Use of the Minimum Spanning Tree Model for Molecular Epidemiological Investigation of a Nosocomial Outbreak of Hepatitis C Virus Infection,” J Clin Microbiol, vol. 42, no. 9, pp. 4230–4236, Sep. 2004, doi: 10.1128/JCM.42.9.4230-4236.2004.
 
 \end{thebibliography}
 
