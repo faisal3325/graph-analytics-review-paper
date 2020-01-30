@@ -112,6 +112,9 @@ In above figure \ref{fig3}, MST is shown in action based on Jarnik's algorithm. 
 Time complexity of this algorithm is O($v^2$) where $v$ is the number of vertices. This algorithm is used for analysing correlations between nodes in a graph. MST has been implemented to minimize commute cost in Papua New Guinea\cite{13} and for investigating molecular structure of Hepatitis C\cite{50}.
 
 \subsubsection{Random Walk}
+Random walk algorithm is a basic algorithm applied on analysing huge graphs. The algorithm starts at a node, randomly chooses a node to move to and then moves on to another randomly choosen node. The algorithm does this until it walks over all nodes in the graph. It maintains a list of visited nodes. This algorithm can be applied only on directed and unweighted graphs. Time complexity is given by O($\sqrt{n}\log(n)$) where $n$ is the population size.
+
+Random walk has been used to analyse behvaiors; to analyse a pattern was invloved or it is random. It has been used in biology to understand biological processes\cite{51} and also been used to analyse stock market\cite{52}. Mostly random walk is used in conjugation with other algorithms\cite{53} or to improve training of machine learning algorithms\cite{54}. It is used as a clustering algorithm generally on graph data.
 
 \subsection{Connectivity Analysis}
 Connectivity analysis helps in identifying the strength of connections/vertices between two nodes in a graph. It is most commonly used for analyzing weaknesses in a graph network. Before diving into the algorithms, its important to understand how the strength of a connection is defined in a graph.
@@ -304,6 +307,14 @@ When the algorithm initializes, every node starts with an equal or zero value. A
     \bibitem{49} BSTJ 36: 6. November 1957: Shortest Connection Networks And Some Generalizations. (Prim, R.C.). 1957.
 
     \bibitem{50} E. Spada et al., “Use of the Minimum Spanning Tree Model for Molecular Epidemiological Investigation of a Nosocomial Outbreak of Hepatitis C Virus Infection,” J Clin Microbiol, vol. 42, no. 9, pp. 4230–4236, Sep. 2004, doi: 10.1128/JCM.42.9.4230-4236.2004.
+
+    \bibitem{51} E. Codling, M. Plank, and S. Benhamou, “Random walks in biology,” Journal of the Royal Society, Interface / the Royal Society, vol. 5, pp. 813–34, Sep. 2008, doi: 10.1098/rsif.2008.0014.
+    
+    \bibitem{52} “The Random Walk Theory And Stock Prices: Evidence From Johannesburg Stock Exchange.” [Online]. Available: https://www.researchgate.net/publication/297750180{\_}The{\_}Random{\_}Walk{\_}Theory{\_}And{\_}Stock{\_}Prices{\_}Evidence{\_}From{\_}Johannesburg{\_}Stock{\_}Exchange. [Accessed: 30-Jan-2020].
+
+    \bibitem{53} N. Masuda, M. A. Porter, and R. Lambiotte, “Random walks and diffusion on networks,” Physics Reports, vol. 716–717, pp. 1–58, Nov. 2017, doi: 10.1016/j.physrep.2017.07.007.
+    
+    \bibitem{54} D. Mack, “Review prediction with Neo4j and TensorFlow,” Medium, 25-Apr-2018. [Online]. Available: https://medium.com/octavian-ai/review-prediction-with-neo4j-and-tensorflow-1cd33996632a. [Accessed: 30-Jan-2020].
 
 \end{thebibliography}
 
