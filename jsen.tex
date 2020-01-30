@@ -165,7 +165,11 @@ The algorithm functions in the following way. Consider a node $n$ with neighbors
 This algorithm performs near-linear time as mentioned by Raghavan et al.\cite{16} which makes it a better contender among other community analysis algorithms. The time complexity is given by O($n + e$) where $n$ is nodes in a graph and $e$ is edges.
 
 \subsubsection{Louvain Modularity}
+Louvain modularity algorithm is used the identify the quality or accuracy of a community. It also helps in formation of communities in huge networks. It is a hierarchical clustering algorithm. This algorithm was developed by Blondel et al. in 2008 \cite{20}. Using the modularity, it also analyses the accuracy of community formation. Blondel et al. calimed that it was an exceptional algorithm in terms of accuracy to extract communities among other community formation algorithms and gives good performance on large graphs.
 
+The algorithm compares newly formed communities with random network based on the density of nodes in a community. It does so by assigning modularity scores to the communities. Modularity score is the measure of how well nodes are divided into communities.
+
+Time complexity is given by O($n^2$) where $n$ is the number of nodes. This algorithm has been used for creating recommendation systems\cite{55}, extracting trends from social media\cite{56}, and understanding community structures in the human brain network\cite{57}.
 
 \subsubsection{Node Clustering Coefficient}
 \subsubsection{Average Clustering Coefficient}
@@ -319,6 +323,12 @@ When the algorithm initializes, every node starts with an equal or zero value. A
     \bibitem{53} N. Masuda, M. A. Porter, and R. Lambiotte, “Random walks and diffusion on networks,” Physics Reports, vol. 716–717, pp. 1–58, Nov. 2017, doi: 10.1016/j.physrep.2017.07.007.
     
     \bibitem{54} D. Mack, “Review prediction with Neo4j and TensorFlow,” Medium, 25-Apr-2018. [Online]. Available: https://medium.com/octavian-ai/review-prediction-with-neo4j-and-tensorflow-1cd33996632a. [Accessed: 30-Jan-2020].
+    
+    \bibitem{55} V. Sundaresan, I. Hsu, and D. Chang, “Subreddit Recommendations within Reddit Communities,” p. 10.
+
+    \bibitem{56} G. S. Kido, R. A. Igawa, and S. Barbon Jr., “Topic Modeling based on Louvain method in Online Social Networks,” in Anais do Simpósio Brasileiro de Sistemas de Informação (SBSI), 2016, pp. 353–360, doi: 10.5753/sbsi.2016.5982.
+    
+    \bibitem{57} D. Meunier, R. Lambiotte, A. Fornito, K. D. Ersche, and E. T. Bullmore, “Hierarchical Modularity in Human Brain Functional Networks,” Front Neuroinformatics, vol. 3, Oct. 2009, doi: 10.3389/neuro.11.037.2009.
 
 \end{thebibliography}
 
