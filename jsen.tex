@@ -119,6 +119,8 @@ Random walk has been used to analyse behvaiors; to analyse a pattern was invlove
 \subsection{Connectivity Analysis}
 Connectivity analysis helps in identifying the strength of connections/vertices between two nodes in a graph. It is most commonly used for analyzing weaknesses in a graph network. Before diving into the algorithms, its important to understand how the strength of a connection is defined in a graph.
 
+\subsubsection{Strongly Connected Components}
+\label{sec:scc}
 A component comprises two or more nodes connected. A concept of Strongly Connected Components (SCCs)\cite{39} is used. A component is said to be strongly connected when a given pair of nodes in the component has connections with each other.
 
 \begin{figure}[!h]
@@ -147,6 +149,8 @@ Kosarju's BFS algorithm also works in the same way; it performs BFS twice instea
 \subsection{Community Analysis}
 A community in a graph network is defined by a group of nodes that have dense connections amongst themselves and sparse connections with the other group of nodes. Community analysis points out interactions between nodes. It is used for clustering nodes with similar attributes. This analysis also helps in analyzing how nodes are clustered or partitioned. The strength of a particular group can also be determined by this analysis. Community analysis is used in identifying proteins involved in a biochemical process, recommendations for a group of people, and evaluating social networks. 
 
+Strongly connected components has been discussed in the previous section \ref{sec:scc} which is a part of community analysis. Weakly connected components also helps in defining structure of the graph by analysisng nodes which are loosely connected in a graph.
+
 \subsubsection{Label Propagation}
 Raghavan et al. proposed this algorithm back in 2007\cite{16}. The algorithm worked on exploring communities in a graph network. 
 
@@ -160,9 +164,9 @@ The algorithm functions in the following way. Consider a node $n$ with neighbors
 
 This algorithm performs near-linear time as mentioned by Raghavan et al.\cite{16} which makes it a better contender among other community analysis algorithms. The time complexity is given by O($n + e$) where $n$ is nodes in a graph and $e$ is edges.
 
-\subsubsection{Strongly Connected Components}
-\subsubsection{Weakly Connected Components}
 \subsubsection{Louvain Modularity}
+
+
 \subsubsection{Node Clustering Coefficient}
 \subsubsection{Average Clustering Coefficient}
 \subsubsection{Bron-Kerbosch}
