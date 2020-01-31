@@ -142,7 +142,7 @@ Kosaraju's original proposed algorithms were based on DFS and some implementatio
     \label{fig5}
 \end{figure}
 
-Now second DFS will be performed and as $7$ was the start node previously, this time also it will start from $7$. The order will be then $7-6-5$ which is our first SCC and then starting DFS from $3$, the order will be $3-1-2$ which is our second SCC. Thus, the algorithm pointed out two SCCs in the graph. Time complexity of Kosaraju’s DFS is O($n + e$) where $n$ is nodes of the graph and $e$ is edges.
+Now second DFS will be performed and as $7$ was the start node previously, this time also it will start from $7$. The order will be then $7-6-5$ which is our first SCC and then starting DFS from $3$, the order will be $3-1-2$ which is our second SCC. Thus, the algorithm pointed out two SCCs in the graph. Time complexity of Kosaraju’s DFS for a graph with $n$ nodes and $e$ edges is O($n + e$).
 
 Kosarju's BFS algorithm also works in the same way; it performs BFS twice instead of DFS.
 
