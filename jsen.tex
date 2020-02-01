@@ -177,10 +177,10 @@ The algorithm compares newly formed communities with random network based on the
 
 Time complexity is given by O($n^2$) where $n$ is the number of nodes. This algorithm has been used for creating recommendation systems\cite{55}, extracting trends from social media\cite{56}, and understanding community structures in the human brain network\cite{57}.
 
-\subsubsection{Node Clustering Coefficient}
-Node Clustering Coefficient is also known as Triangle Counting/Clustering Coefficient and is applied on undirected and unweighted graphs. The coefficient checks to what degree nodes in a network tend to cluster together, it does so by identifying the number of triangles in the graph which pass through each node. This measures the cohesiveness of clusters. The coefficient is classified into two types: global clustering coefficient and local clustering coefficient.
+\subsubsection{Node Clustering Coefficient and Average Clustering Coefficient}
+The coefficient checks to what degree nodes in a network tend to cluster together, it does so by identifying the number of triangles in the graph which pass through each node. This measures the cohesiveness of clusters. The coefficient is classified into two types: node clustering coefficient and average clustering coefficient. Node Clustering Coefficient is also known as Local Clustering Coefficient and is applied on undirected and unweighted graphs. Average Clustering Coefficient is known as Global Clustering Coefficient.
 
-To understand global clustering coefficient, local clustering coefficient needs to be understood first. The latter of a node is the measure of the closeness of its neighbors to being a complete graph. This is measured using the triangle counting method. Global clustering coefficient is then the total of these local clustering coefficients.
+To understand average clustering coefficient, node clustering coefficient needs to be understood first. The latter of a node is the measure of the closeness of its neighbors to being a complete graph. This is measured using the triangle counting method. Average clustering coefficient is then the total of these node clustering coefficients.
 
 \begin{figure}[!h]
     \centerline{\includegraphics[scale=0.51]{figures/node_clustering.pdf}}
@@ -190,7 +190,6 @@ To understand global clustering coefficient, local clustering coefficient needs 
 
 The time complexity of node clustering coefficient is given by $O(n^3)$ where $n$ is number of nodes in the graph. This method is used to analyse social networks and web pages with a shared topic amongst them.
 
-\subsubsection{Average Clustering Coefficient}
 \subsubsection{Bron-Kerbosch}
 
 \subsection{Centrality Analysis}
