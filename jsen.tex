@@ -265,13 +265,20 @@ In the following figure \ref{fig14}, node $I$ has the highest closeness centrali
     \label{fig14}
 \end{figure}
 
-
 The time complexity of this algorithm O($v^3$) where $v$ is number of vertices in graph. Faster methods also have been proposed with time complexity O($\alpha * v$) where $\alpha \approx 10 - 100$\cite{59}. This measure is being used in telecommunication networks for measuring speed of the network and also in extracting important words from a document.
 
 \subsubsection{Betweenness Centrality}
+Betweenness centrality is the measure of importance on the flow of data of a given node in a graph. It identifies nodes that connects two or more sub parts of a graph. It was first developed by Freeman in 1971\cite{32}.
 
+The algorithm calculates shortest path between pair of nodes using BFS. Every node is assigned a score based on the number of shortest paths passing through the particular node. Consider the following figure \ref{fig15}. In this figure, a directed graph is shown. Since node $B$ forms the bridge of the network as it is connected to all other nodes. If $B$ is removed, the graph would be disconnected. Hence, $B$ is the most important node in the graph.
 
-The time complexity of this algorithm O($v*e$) where $v$ is number of vertices and $e$ is edges in the graph.
+\begin{figure}[!h]
+    \centerline{\includegraphics[scale=0.8]{figures/betweeness.pdf}}
+    \caption{A directed graph}
+    \label{fig15}
+\end{figure}
+
+The time complexity of this algorithm O($v*e$) where $v$ is number of vertices and $e$ is edges in the graph. This algorithm is being used in social networks to find out influencer accounts and in telecommunication networks to pinpoint important nodes in the network so as to prevent these nodes to failing.
 
 \subsection{Graph Neural Networks}
 \label{sec:gnn}
