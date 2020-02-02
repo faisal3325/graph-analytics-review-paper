@@ -255,8 +255,22 @@ The algorithm measures progressive influence of nodes. It works on the assumptio
 The time complexity of PageRank is O($n + m$) where $n$ is number of nodes and $m$ is number of edges. This algorithm was the core of Google's search engine. It has been also used by computational neuroscientists in understanding the neural network.
 
 \subsubsection{Closeness Centrality}
+Closeness centrality algorithm detects nodes that can swiftly transmit information within a graph. Closeness centrality of a given node is the measure of its average distance from other nodes. Higher the measure lower the average distance is. It is calculated as the sum of the shortest path length between the node and any other node in the graph. This algorithm produces different results in directed and undirected graphs. For a outgoing connection from a node, it can have high closeness centrality measure while for an incoming connection it can have a low measure.
+
+In the following figure \ref{fig14}, node $I$ has the highest closeness centrality measure as it is connected by a significant number of nodes in a short distance.
+
+\begin{figure}[!h]
+    \centerline{\includegraphics[scale=0.8]{figures/closeness.pdf}}
+    \caption{An undirected graph}
+    \label{fig14}
+\end{figure}
+
+
+The time complexity of this algorithm O($v^3$) where $v$ is number of vertices in graph. This measure is being used in telecommunication networks for measuring speed of the network and also in extracting important words from a document.
+
 \subsubsection{Betweenness Centrality}
 
+The time complexity of this algorithm O($v*e$) where $v$ is number of vertices and $e$ is edges in the graph.
 
 \subsection{Graph Neural Networks}
 \label{sec:gnn}
