@@ -229,6 +229,18 @@ When the algorithm initializes, every node starts with an equal or zero value. A
 \end{figure}
 
 \subsubsection{Katz Centrality}
+Katz centrality algorithm was discovered by Leo Katz in 1953 \cite{58}. This algorithm is used to measure the influence of a node within a graph network. It does so by computing the influence of a node by taking into consideration the number of first degree neighbors of it also taking into fact the number of the nodes connected to the main node through these neighbor nodes. But these indirect connections are penalized by an attenuation factor $\alpha$. A weight defined by $\alpha$ is given to connections made between nodes and $\alpha$$^d$  as the distance between nodes where $d$ is the degree of connection.
+
+Consider the following figure \ref{fig12}. To find influence of node $A$, the weight of the connections between its neighbors is determined. Suppose $\alpha$ is $0.2$, then the weight assigned to the path between $A$ and $C$ will be $0.2^1 = 0.1$. Weight assigned to connection between $A$ and $G$ will be $0.2^2 = 0.4$ since $G$ is a second degree connection through $C$. Similarly, connection between $A$ and $F$ will be weighted $0.2^3 = 0.8$.
+
+\begin{figure}[!h]
+    \centerline{\includegraphics[scale=0.6]{figures/katz.pdf}}
+    \caption{An undirected graph}
+    \label{fig12}
+\end{figure}
+
+The time complexity of this algorithm O($v^3$) where $v$ is number of vertices in graph. Its applications include computation of citations in citation network hosted on the web, analysing influential accounts on social networks and for analyzing neurons in a neural network in brain.
+
 \subsubsection{PageRank Centrality}
 \subsubsection{Closeness Centrality}
 \subsubsection{Betweenness Centrality}
@@ -357,6 +369,8 @@ When the algorithm initializes, every node starts with an equal or zero value. A
     \bibitem{56} G. S. Kido, R. A. Igawa, and S. Barbon Jr., “Topic Modeling based on Louvain method in Online Social Networks,” in Anais do Simpósio Brasileiro de Sistemas de Informação (SBSI), 2016, pp. 353–360, doi: 10.5753/sbsi.2016.5982.
     
     \bibitem{57} D. Meunier, R. Lambiotte, A. Fornito, K. D. Ersche, and E. T. Bullmore, “Hierarchical Modularity in Human Brain Functional Networks,” Front Neuroinformatics, vol. 3, Oct. 2009, doi: 10.3389/neuro.11.037.2009.
+    
+    \bibitem{58} L. Katz, “A new status index derived from sociometric analysis,” Psychometrika, vol. 18, no. 1, pp. 39–43, Mar. 1953, doi: 10.1007/BF02289026.
 
 \end{thebibliography}
 
