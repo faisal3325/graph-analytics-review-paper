@@ -242,6 +242,18 @@ Consider the following figure \ref{fig12}. To find influence of node $A$, the we
 The time complexity of this algorithm O($v^3$) where $v$ is number of vertices in graph. Its applications include computation of citations in citation network hosted on the web, analysing influential accounts on social networks and for analyzing neurons in a neural network in brain.
 
 \subsubsection{PageRank Centrality}
+PageRank is a popular algorithm developed by Page et al. in late 1999 and named after Larry Page, co-founder of Google. This algorithm has been used by the Google Search engine for a long period of time. PageRank measured ranking of web pages based on its importance. It was patented until 24th of September 2019.
+
+The algorithm measures progressive influence of nodes. It works on the assumption that a node is important if it is connected by a higher amount of nodes. The following figure \ref{fig13} explains well how PageRank works on web pages.
+
+\begin{figure}[!h]
+    \centerline{\includegraphics[scale=0.8]{figures/pagerank.pdf}}
+    \caption{Node $A$ has been connected (incoming connections) with every other nodes, thus its PageRank is highest. The size of the nodes is directly proportional to their PageRank.}
+    \label{fig13}
+\end{figure}
+
+The time complexity of PageRank is O($n + m$) where $n$ is number of nodes and $m$ is number of edges. This algorithm was the core of Google's search engine. It has been also used by computational neuroscientists in understanding the neural network.
+
 \subsubsection{Closeness Centrality}
 \subsubsection{Betweenness Centrality}
 
