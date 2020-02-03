@@ -394,6 +394,40 @@ Zhou et al. identified some limitations on GNN in \cite{60}. To overcome these l
 
 \section{Discussion}
 \label{sec:discussion}
+\begin{table*}[]
+    \caption{Summary of surveyed Graph Analytic techniques}
+    \label{tab:summary}
+	\centering
+    \begin{tabular}{l l l l}
+    \toprule
+    \multirow{2}{*}{Technique} & \multirow{2}{*}{Category} & \multirow{2}{*}{Supported Graph Types}  & \multirow{2}{*}{Time Complexity}\\ 
+    &&& \\ \midrule
+    Parallel Breadth-First Search & Path Analysis & Tree-shaped graph & $O(log(d).log(n))$ \\ \midrule
+    Parallel Depth-First Search & Path Analysis & Tree-shaped graph & $O(log(d).log(n))$  \\ \midrule
+    Single-Source Shortest Path & Path Analysis & Weighted-directed graph with negative cycles & $O(v * e)$  \\ \midrule
+    All-Pairs Shortest Path & Path Analysis & Weighted-directed graph & $O(n^3)$  \\ \midrule
+    Minimum Weight Spanning Tree & Path Analysis & Weighted-undirected graph with negative cycles & $O(v^2)$  \\ \midrule
+    Random Walk & Path Analysis & Directed graph without weights & $O(\sqrt{n}\log(n))$  \\ \midrule
+    Kosaraju's BFS and DFS & Connectivity Analysis & Directed graph & $O(n + e)$  \\ \midrule
+    Label Propagation & Community Analysis & Directed, undirected, weighted, and unweighted graph & $O(n + e)$  \\ \midrule
+    Louvain Modularity & Community Analysis & Directed, undirected, weighted, and unweighted graph & $O(n^2)$  \\ \midrule
+    Node Clustering Coefficient & Community Analysis & Directed, undirected, weighted, and unweighted graph & $O(n^3)$  \\ \midrule
+    Average Clustering Coefficient & Community Analysis & Directed, undirected, weighted, and unweighted graph & $O(n^3)$  \\ \midrule
+    Bron-Kerbosch & Community Analysis & Directed, undirected, weighted, and unweighted graph & $O(3^{n/3})$  \\ \midrule
+    Degree Centrality & Centrality Analysis & Directed graph & $O(v)$  \\ \midrule
+    Eigenvector Centrality & Centrality Analysis & Directed, undirected, and unweighted graph & $O(v^3)$  \\ \midrule
+    Katz Centrality & Centrality Analysis & Directed, undirected, and unweighted graph & $O(v^3)$  \\ \midrule
+    PageRank Centrality & Centrality Analysis & Directed, undirected, weighted, and unweighted graph & $O(n + m)$  \\ \midrule
+    Closeness Centrality & Centrality Analysis & Undirected and unweighted graph & $O(v^3)$  \\ \midrule
+    Betweenness Centrality & Centrality Analysis & Directed, undirected, and unweighted graph & $O(v * e)$  \\ \midrule
+    Recurrent Graph Neural Networks & Graph Neural Networks & Any graph & $O(m)$  \\ \midrule
+    Spectral-based CGNN & Graph Neural Networks & Any graph & $O(n^3)$  \\ \midrule
+    Spatial-based CGNN & Graph Neural Networks & Any graph & $O(n^2)$  \\ \midrule
+    Graph Autoencoders & Graph Neural Networks & Any graph & -  \\ \midrule
+    Spatial-Temporal Graph Neural Networks & Graph Neural Networks & Any graph & -  \\
+    \bottomrule
+    \end{tabular}
+\end{table*}
 
 \section{Conclusion}
 \label{sec:conclusion}
