@@ -282,6 +282,20 @@ The time complexity of this algorithm O($v*e$) where $v$ is number of vertices a
 
 \subsection{Graph Neural Networks}
 \label{sec:gnn}
+Deep learning has been a revolutionary invention which has improvised many machine learning tasks. Tasks like natural language processing to image recognition and prediction to data generation. However, these tasks use training data which is represented in Euclidean space and graph data is represented in non-Euclidean space. There was a need to use machine learning algorithms on this ever increasing graph data. Scarselli et al. in 2009 presented the first ever Graph Neural Network (GNN) model\cite{34}. The model uses a function which maps a given graph and its nodes to an $n$-dimensional Euclidean space. 
+
+GNN is usually used for classifying nodes. In essence, predicting labels of nodes in a graph. It learns about the representation of a target node by iteratively propagating neighboring information until a secure fixed point is reached. Because of challenges in GNN, many methods were proposed recently. The review paper will briefly describe some of these methods. Recurrent Graph Neural Networks, Convolutional Graph Neural Networks, Graph Autoencoders, Spatial-Temporal Graph Neural Networks are some of the most common GNN models\cite{33}.
+
+\subsubsection{Recurrent Graph Neural Networks}
+Recurrent Graph Neural Networks (RecGNNs) learn node characterization. It does so with the help of recurrent neural architecture. It works on the underlying assumption that a node in a graph shares data with its neighbors all the time until a stable balance is reached. Due to the recurrent nature of RecGNN, the same recurrent layer updates the representations.
+
+\subsubsection{Convolutional Graph Neural Networks}
+Convolutional Graph Neural Networks (ConvGNNs) is used to deduce grid-to-graph data conversion operations. The algorithm works by predicting a node's representation by summing up its and its neighbors' features. Unlike RecGNNs, ConvGNN use different multiple layers to update representations. It uses different weights in these layers. There are two types of ConvGNN, spectral-based ConvGNNs and spatial-based ConvGNNs. Spectral-based ConvGNNs use filters in layers while in spatial-based ConvGNNs, it uses the spatial relations of nodes to define layers.
+
+\subsubsection{Graph Autoencoders}
+
+
+\subsubsection{Spatial-Temporal Graph Neural Networks}
 
 \section{Discussion}
 \label{sec:discussion}
