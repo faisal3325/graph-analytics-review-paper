@@ -293,9 +293,12 @@ Recurrent Graph Neural Networks (RecGNNs) learn node characterization. It does s
 Convolutional Graph Neural Networks (ConvGNNs) is used to deduce grid-to-graph data conversion operations. The algorithm works by predicting a node's representation by summing up its and its neighbors' features. Unlike RecGNNs, ConvGNN use different multiple layers to update representations. It uses different weights in these layers. There are two types of ConvGNN, spectral-based ConvGNNs and spatial-based ConvGNNs. Spectral-based ConvGNNs use filters in layers while in spatial-based ConvGNNs, it uses the spatial relations of nodes to define layers.
 
 \subsubsection{Graph Autoencoders}
-
+Graph Autoencoders (GAEs) works by encoding graphs in a latent vector space and then from these encoded form it reconstructs the graph. GAEs are used to learn embedding networks and to generate graphs. It studies latent node representations for network embedding through the recreation of conceptual graphic knowledge such as the adjacency matrix.
 
 \subsubsection{Spatial-Temporal Graph Neural Networks}
+Spatial-Temporal Graph Neural Networks (STGNNs) identifies and learns hidden patterns in spatial-temporal graphs. Spatial-temporal graphs are collected based on space and time. In essence it means processing real time data. Thus it needs to use both spatial and temporal data at the same time. It is used for predicting future nodes. It is used in conjugation with ConvGNN and either Recurrent Neural Network (RNN) or Convolutional Neural Network (CNN).
+
+Zhou et al. identified some limitations on GNN in \cite{60}. To overcome these limitations, they have proposed some other methods like, spectral, non-spectral, Graph Attention Networks, Gated Graph Neural Networks and Graph LSTM. 
 
 \section{Discussion}
 \label{sec:discussion}
@@ -421,6 +424,8 @@ Convolutional Graph Neural Networks (ConvGNNs) is used to deduce grid-to-graph d
     \bibitem{58} L. Katz, “A new status index derived from sociometric analysis,” Psychometrika, vol. 18, no. 1, pp. 39–43, Mar. 1953, doi: 10.1007/BF02289026.
     
     \bibitem{59} A. Saxena, R. Gera, and S. R. S. Iyengar, “A Faster Method to Estimate Closeness Centrality Ranking,” arXiv:1706.02083 [physics], Jun. 2017.
+    
+    \bibitem{60} J. Zhou et al., “Graph Neural Networks: A Review of Methods and Applications,” p. 22.
 
 \end{thebibliography}
 
