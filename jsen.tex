@@ -165,7 +165,7 @@ The BFS algorithm starts at an arbitrary node in the graph and travels to all no
     \label{fig1}
 \end{figure}
 
-The problem with serial BFS is that time and memory consumption depends on the number of branches and the depth of the graph. In the worst case, for a graph with ${b}$ branches and ${l}$ levels, time and space complexity is then given by $O(b^l)$. Since we are dealing with big data analysis where data is huge, it will consume a lot of time.
+The problem with serial BFS is that time and memory consumption is proportional to the branches and the depth of the graph. In the worst case, for a graph with ${b}$ branches and ${l}$ levels, time and space complexity is then given by $O(b^l)$. Since we are dealing with big data analysis where data is huge, it will consume a lot of time.
 
 To solve this issue with BFS, the concept of parallelism was introduced. Parallel computing distributes the load to multiple processors hence taking of load from a single process and distributing it to others to reduce the overhead. The parallel version of BFS can be done using two approaches either using shared memory or by using distributed memory. The shared memory implementation of BFS generates Breadth-First Spanning Trees (BFSTs) of a given graph G with $n$ nodes. The time required in this step is $O(log(d).log(n))$ where $d$ represents the diameter of G which is far more better than serial BFS with time complexity $O(b^d)$. The number of processors used for this process is dependent on the nodes; the time complexity is defined by $O(n^3)$ \cite{36}. If the graph is undirected, the algorithm will generate $n$ BFSTs.
 
