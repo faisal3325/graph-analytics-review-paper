@@ -320,6 +320,8 @@ When the algorithm initializes, every node starts with an equal or zero value. A
     \label{fig11}
 \end{figure}
 
+Time complexity of Eigenvector centrality is given by $O(v^3)$ where $v$ is the vertices of a graph. It is used for ranking web pages and also used by computational neuroscientists in understanding the neural network.
+
 \subsection{Katz Centrality}
 Katz centrality algorithm was discovered by Leo Katz in 1953 \cite{58}. This algorithm is used to measure the influence of a node within a graph network. It does so by computing the influence of a node by taking into consideration the number of first-degree neighbors of it also taking into the fact the number of the nodes connected to the main node through these neighbor nodes. But these indirect connections are penalized by an attenuation factor $\alpha$. A weight defined by $\alpha$ is given to connections made between nodes and $\alpha$$^d$  as the distance between nodes where $d$ is the degree of connection.
 
