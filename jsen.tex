@@ -34,7 +34,7 @@ Big Data Analytics, Centrality Analysis, Community Analysis, Connectivity Analys
 \label{sec:introduction}
 \IEEEPARstart{W}{ith} the introduction of the internet in the 90s, there has been tremendous innovation in the tech industry. This changed the way organizations, businesses, governments function. It even changed the lifestyle of the people. Major contributions to the tech space were not until the early 2000s due to innovations in computational power and during this period, the volume of data generated with the introduction of social media and other services for the masses has risen a lot. Data is being created every second of the data. In 2013, Instagram users shared 3600 photos every minute, while in 2019, the number of photos shared every minute reached 46,740. The world internet population has increased from 2.5 billion to 3.7 billion~\cite{1}. It is estimated that by 2020, 40 trillion GB of data would be generated~\cite{2} which means internet user generates nearly 2500000 terabytes of data every day~\cite{1}. Most of the data being generated is contributed by social media on which an average user spends 33\% of his/her online time. This is why in 2019, there are 2.3 billion users active on Facebook~\cite{3}.
 
-Because of this vast amount of data, there was a need to develop more efficient and cost-effective data storage. This led to the introduction of the term Big Data in early 2005~\cite{4}. Big data is the type of data that has a high variety, large volume, high velocity, greater veracity, and extreme value also it is continuously growing on a large scale. These characteristics of the big data are referred to as the 5Vs. It will not be a surprise that the data is unstructured as it is being collected from multiple sources. Big data can be comprised of logs of the traffic coming in on a website, messages generated on a social media site, attributes of mouse clicks, details of products stored on an e-commerce website, medical data of a hospital, bank transactions, satellite data, and many other sources which generate data.
+Because of this vast amount of data, there was a need to develop more efficient and cost-effective data storage. This led to the introduction of the term Big Data in early 2005~\cite{4}. Properties of big data are high variety, large volume, high velocity, greater veracity, and extreme value also it is continuously growing on a large scale. These characteristics of the big data are referred to as the 5Vs. It will not be a surprise that the data is unstructured as it is being collected from multiple sources. Big data can be comprised of logs of the traffic coming in on a website, messages generated on a social media site, attributes of mouse clicks, details of products stored on an e-commerce website, medical data of a hospital, bank transactions, satellite data, and many other sources which generate data.
 
 Since generating data is an easier task than getting useful insights out of it, there was a need to emphasize on its analysis. But because of the sheer volume of high dimensional, unstructured, and highly inconsistent data, running traditional methods for analysis might miss out on the hidden structures of the data. Thus, there was a need to devise powerful algorithms and provide high computational powers that can solve these problems. Due to the introduction of cloud computing and its scalable nature, researchers were able to develop algorithms to mine and make out meaningful insights from this data. With the right analysis methods, it can yield greater insights leading to stronger and strategic decisions. Using big data analysis, Netflix manages to easily save \$1 billion every year~\cite{5}. Wikibon, an organization sharing tech-related knowledge, has estimated the market worth of big data analytics to a whopping \$49 billion for the year 2019~\cite{6}.
 
@@ -148,7 +148,7 @@ In this section, the paper presents taxonomy of graph analytics techniques, as s
 
 \textbf{Centrality Analysis} algorithms are used to detect the importance of nodes. It is used majorly in social network analysis. Degree centrality, Eigenvector centrality, Katz centrality, PageRank centrality, closeness centrality, and betweenness centrality are some of the centrality analysis algorithms.
 
-\textbf{Graph Neural Network (GNN)} is deep learning applied on graph data for predictions of node labels and/or generating graphs and nodes. Recurrent Graph Neural Networks, Convolutional Graph Neural Networks, Graph Autoencoders, Spatial-Temporal Graph Neural Networks are some of the most common GNN models surveyed briefly in this paper.  
+\textbf{Graph Neural Network (GNN)} is deep learning applied on graph data for predictions of node labels and/or generating graphs and nodes.
 
 \section{Path Analysis}
 \label{sec:path}
@@ -165,16 +165,16 @@ The BFS algorithm starts at an arbitrary node in the graph and travels to all no
     \label{fig1}
 \end{figure}
 
-The problem with serial BFS is that time and memory consumption depends on the number of branches and the depth of the graph. In the worst case, for a graph with ${b}$ branches and ${l}$ levels, time and space complexity is then given by O($b^l$). Since we are dealing with big data analysis where data is huge, it will consume a lot of time.
+The problem with serial BFS is that time and memory consumption depends on the number of branches and the depth of the graph. In the worst case, for a graph with ${b}$ branches and ${l}$ levels, time and space complexity is then given by $O(b^l)$. Since we are dealing with big data analysis where data is huge, it will consume a lot of time.
 
-To solve this issue with BFS, the concept of parallelism was introduced. Parallel computing distributes the load to multiple processors hence taking of load from a single process and distributing it to others to reduce the overhead. The parallel version of BFS can be done using two approaches either using shared memory or by using distributed memory. The shared memory implementation of BFS generates Breadth-First Spanning Trees (BFSTs) of a given graph G with $n$ nodes. The time required in this step is O($log(d).log(n)$) where $d$ represents the diameter of G which is far more better than serial BFS with time complexity O($b^d$). The number of processors used for this process is dependent on the nodes; the time complexity is defined by O($n^3$) \cite{36}. If the graph is undirected, the algorithm will generate $n$ BFSTs.
+To solve this issue with BFS, the concept of parallelism was introduced. Parallel computing distributes the load to multiple processors hence taking of load from a single process and distributing it to others to reduce the overhead. The parallel version of BFS can be done using two approaches either using shared memory or by using distributed memory. The shared memory implementation of BFS generates Breadth-First Spanning Trees (BFSTs) of a given graph G with $n$ nodes. The time required in this step is $O(log(d).log(n))$ where $d$ represents the diameter of G which is far more better than serial BFS with time complexity $O(b^d)$. The number of processors used for this process is dependent on the nodes; the time complexity is defined by $O(n^3)$ \cite{36}. If the graph is undirected, the algorithm will generate $n$ BFSTs.
 
 In the distributed memory version of BFS, each process has its memory and they have to share messages amongst each other to share their data. Since there is an overhead of communication in this approach, shared memory BFS will provide higher bandwidth with low latency \cite{37}.
 
 \subsection{Parallel Depth-First Search}
 Parallel depth-first search also deals with parallelism as discussed in the previous section. To understand this, it is necessary to go through serial depth-first search (DFS).
 
-The DFS algorithm starts at an arbitrary node and travels deep into a path before coming back a step and exploring the next path. This algorithm is used on hierarchical data. Since the algorithm might face issues with infinite loops due to the fact we are traversing on a graph, similarly to BFS, DFS for graphs also have to be implemented with a mechanism to store visited nodes. The time complexity of DFS is similar to BFS, O($b^d$) while the space complexity is O($d$).
+The DFS algorithm starts at an arbitrary node and travels deep into a path before coming back a step and exploring the next path. This algorithm is used on hierarchical data. Since the algorithm might face issues with infinite loops due to the fact we are traversing on a graph, similarly to BFS, DFS for graphs also have to be implemented with a mechanism to store visited nodes. The time complexity of DFS is similar to BFS, $O(b^d)$ while the space complexity is $O(d)$.
 
 Serial DFS also faces the same problem as serial BFS, that is it will also consume a lot of time for big data analysis. So to avoid this, parallel DFS was proposed. To parallelize DFS, the graph is split among different processors. Each processor performs its task independently until it finishes it after which the processor requests an unfinished section of the graph from other processors. Some of the models of implementation of parallel DFS include shared memory models, boolean circuits, and parallel comparison trees\cite{38}.  
 
@@ -193,14 +193,14 @@ SSSP is capable of computing the shortest path on graphs with "negative cycle" w
 
 In the above figure \ref{fig2}, the shortest path of a graph is computed step-by-step using the SSSP algorithm. Path costs are given. In step 1, all the nodes except start are initialized with positive infinity. The second step starts from the start node and traverses to all its neighbors. As the algorithm moves to its neighbors, the path cost is assigned to the weights of the visited node. Now, in step 3, it can be noted that the node with weight 10 is replaced by 5 and the path from start to it is removed. The algorithm has computed the shortest path (path with least cost) from an alternate route even though it involves visiting one node before reaching to the destination. This way, it computes and replaces weights as it proceeds to move through the graph. In step 4, we have the final path which costs just 6 to traverse through all the 5 nodes.
 
-The time complexity of SSSP is given by O($V*E$) while the space complexity is O($V$) where $V$ denotes vertices and $E$ is edges of a graph. It is used for detecting link failures in a network and come up with new links or routes in no time.
+The time complexity of SSSP is given by $O(v * e)$ while the space complexity is $O(v)$ where $v$ denotes vertices and $e$ is edges of the graph. It is used for detecting link failures in a network and come up with new links or routes in no time.
 
 \subsection{All-Pairs Shortest Path}
 To understand the All-Pairs Shortest Path (APSP) algorithm, the problem should be discussed first. APSP problem is for finding the minimum distance between every vertex of a particular edge. The graph should be directed with weights. To solve this APSP problem, multiple variants of APSP algorithms were proposed\cite{43, 44, 45, 46}. This paper will first look into the Floyd-Warshall algorithm which is quite popular amongst other APSP algorithms. Unlike SSSP, this algorithm does not work on the "negative cycles" graph however, it can work on both directed and undirected graphs.
 
 The output of this algorithm is a matrix representing the shortest distance from a node to other nodes. When a node is unreachable to another node, the algorithm returns infinity which signifies no path can be formed.
 
-The time complexity of this algorithm is O($n^3$) where $n$ is the number of vertices and space complexity is given by O($n^2$). Some common use cases of the APSP algorithm include pool ride-sharing for picking up riders along the way.
+The time complexity of this algorithm is $O(n^3)$ where $n$ is the number of vertices and space complexity is given by $O(n^2)$. Some common use cases of the APSP algorithm include pool ride-sharing for picking up riders along the way.
 
 \subsection{Minimum Weight Spanning Tree}
 Minimum Weight Spanning Tree (MST) is applied to a tree where a path needs to be traced with minimum weight among all nodes. MST is used mostly to make clusters in a graph. K-Means is used along with MST to find clusters. MST was first developed by Borůvka in 1926\cite{47}. The most famous known adoption of Borůvka's algorithm was done by Jarnik in 1930\cite{48} which is sometimes called Prim's algorithm as he rediscovered and republished it a few years later\cite{49}. Similar to SSSP, Jarnik's algorithm can be used on "negative cycle" graphs.
@@ -213,10 +213,10 @@ Minimum Weight Spanning Tree (MST) is applied to a tree where a path needs to be
 
 In the above figure \ref{fig3}, MST is shown in action based on Jarnik's algorithm. In step 1, node 1 is picked up and its neighbors are assigned the path cost as a key-value pair. Node 1 is added to a list, hence darkened. In step 2, the lowest key-value pair among 7 and 2 are picked up, 2 is the lowest. Its neighbors are then assigned the weight as a key-value pair and 2 is added to the list. Similarly, in step 3 also 5 is assigned its weight. The algorithm will repeat this process until all nodes are added to the list. Now the order in which the nodes are picked up is our the path of the tree. It is noticed that individual node pair paths are considered rather than the whole tree while formulating the path.
 
-The time complexity of this algorithm is O($v^2$) where $v$ is the number of vertices. This algorithm is used for analyzing correlations between nodes in a graph. MST has been implemented to minimize commute cost in Papua New Guinea\cite{13} and for investigating the molecular structure of Hepatitis C\cite{50}.
+The time complexity of this algorithm is $O(v^2)$ where $v$ is the number of vertices. This algorithm is used for analyzing correlations between nodes in a graph. MST has been implemented to minimize commute cost in Papua New Guinea\cite{13} and for investigating the molecular structure of Hepatitis C\cite{50}.
 
 \subsection{Random Walk}
-A random walk algorithm is a basic algorithm applied to analyzing huge graphs. The algorithm starts at a node, randomly chooses a node to move to and then moves on to another randomly chosen node. The algorithm does this until it walks over all nodes in the graph. It maintains a list of visited nodes. This algorithm can be applied only on directed and unweighted graphs. Time complexity is given by O($\sqrt{n}\log(n)$) where $n$ is the population size.
+A random walk algorithm is a basic algorithm applied to analyzing huge graphs. The algorithm starts at a node, randomly chooses a node to move to and then moves on to another randomly chosen node. The algorithm does this until it walks over all nodes in the graph. It maintains a list of visited nodes. This algorithm can be applied only on directed and unweighted graphs. Time complexity is given by $O(\sqrt{n}\log(n))$ where $n$ is the population size.
 
 The random walk has been used to analyze behaviors; to analyze a pattern was involved or it is random. It has been used in biology to understand biological processes\cite{51} and also been used to analyze stock market\cite{52}. Random walk is mostly used in conjugation with other algorithms\cite{53} or to improve the training of machine learning algorithms\cite{54}. It is used as a clustering algorithm generally on graph data.
 
@@ -246,7 +246,7 @@ Kosaraju's original proposed algorithms were based on DFS and some implementatio
     \label{fig5}
 \end{figure}
 
-Now second DFS will be performed and as $7$ was the start node previously, this time also it will start from $7$. The order will be then $7-6-5$ which is our first SCC and then starting DFS from $3$, the order will be $3-1-2$ which is our second SCC. Thus, the algorithm pointed out two SCCs in the graph. Time complexity of Kosaraju’s DFS for a graph with $n$ nodes and $e$ edges is O($n + e$).
+Now second DFS will be performed and as $7$ was the start node previously, this time also it will start from $7$. The order will be then $7-6-5$ which is our first SCC and then starting DFS from $3$, the order will be $3-1-2$ which is our second SCC. Thus, the algorithm pointed out two SCCs in the graph. Time complexity of Kosaraju’s DFS for a graph with $n$ nodes and $e$ edges is $O(n + e)$.
 
 Kosarju's BFS algorithm also works in the same way; it performs BFS twice instead of DFS.
 
@@ -267,7 +267,7 @@ The algorithm functions in the following way. Consider a node $n$ with neighbors
     \label{fig6}
 \end{figure}
 
-This algorithm performs near-linear time as mentioned by Raghavan et al.\cite{16} which makes it a better contender among other community analysis algorithms. For a graph with $n$ nodes and $e$ edges, its time complexity is O($n + e$).
+This algorithm performs near-linear time as mentioned by Raghavan et al.\cite{16} which makes it a better contender among other community analysis algorithms. For a graph with $n$ nodes and $e$ edges, its time complexity is $O(n + e)$.
 
 \subsection{Louvain Modularity}
 Louvain modularity algorithm is used to identify the quality or accuracy of a community. It also helps in the formation of communities in huge networks. It is a hierarchical clustering algorithm. This algorithm was developed by Blondel et al. in 2008 \cite{20}. Using modularity, it also analyses the accuracy of community formation. Blondel et al. claimed that it is an exceptional algorithm in terms of accuracy to extract communities among other community formation algorithms and gives good performance on large graphs.
@@ -280,7 +280,7 @@ The algorithm compares newly formed communities with random networks based on th
     \label{fig7}
 \end{figure}
 
-Time complexity is given by O($n^2$) where $n$ is the number of nodes. This algorithm has been used for creating recommendation systems\cite{55}, extracting trends from social media\cite{56}, and understanding community structures in the human brain network\cite{57}.
+Time complexity is given by $O(n^2)$ where $n$ is the number of nodes. This algorithm has been used for creating recommendation systems\cite{55}, extracting trends from social media\cite{56}, and understanding community structures in the human brain network\cite{57}.
 
 \subsection{Node Clustering Coefficient and Average Clustering Coefficient}
 The coefficient checks to what degree nodes in a network tend to cluster together, it does so by identifying the number of triangles in the graph which pass through each node. This measures the cohesiveness of clusters. The coefficient is classified into two types: node clustering coefficient and average clustering coefficient. Node Clustering Coefficient is also known as the Local Clustering Coefficient and is applied to undirected and unweighted graphs. Average Clustering Coefficient is known as the Global Clustering Coefficient.
@@ -321,7 +321,7 @@ Degree centrality was proposed by Freeman in 1979\cite{25}. It is used for measu
     \label{fig10}
 \end{figure}
 
-The time complexity of this algorithm thus will be O($v$) where $v$ is vertices of the graph.
+The time complexity of this algorithm thus will be $O(v)$ where $v$ is vertices of the graph.
 
 \subsection{Eigenvector Centrality}
 The eigenvector centrality method was proposed by Bonacich\cite{26}. It is the influence a node has in a network. A node is scored based on its connections with nodes with high scores. This means, a node connected to a few other nodes but these nodes have high influence, then the former node's eigenvector value will be very high. It can be inferred that connecting to a few highly influential nodes will give a boost to the eigenvector value.
@@ -347,7 +347,7 @@ Consider the following figure \ref{fig12}. To find influence of node $A$, the we
     \label{fig12}
 \end{figure}
 
-The time complexity of this algorithm O($v^3$) where $v$ is the number of vertices in a graph. Its applications include computation of citations in citation networks hosted on the web, analyzing influential accounts on social networks and analyzing neurons in a neural network in the brain.
+For a graph $G$ with $v$ vertices, the time complexity is $O(v^3)$. Its applications include computation of citations in citation networks hosted on the web, analyzing influential accounts on social networks and analyzing neurons in a neural network in the brain.
 
 \subsection{PageRank Centrality}
 PageRank is a popular algorithm developed by Page et al. in late 1999 and named after Larry Page, co-founder of Google. This algorithm has been used by the Google Search engine for a long period. PageRank measured ranking of web pages based on its importance. It was patented until the 24th of September 2019.
@@ -360,7 +360,7 @@ The algorithm measures the progressive influence of nodes. It works on the assum
     \label{fig13}
 \end{figure}
 
-The time complexity of PageRank is O($n + m$) where $n$ is the number of nodes and $m$ is the number of edges. This algorithm was the core of Google's search engine. It has been also used by computational neuroscientists in understanding the neural network.
+The time complexity of PageRank is $O(n + m)$ where $n$ is the number of nodes and $m$ is the number of edges. This algorithm was the core of Google's search engine. It has been also used by computational neuroscientists in understanding the neural network.
 
 \subsection{Closeness Centrality}
 The closeness centrality algorithm detects nodes that can swiftly transmit information within a graph. The closeness centrality of a given node is the measure of its average distance from other nodes. Higher the measure lower the average distance is. It is calculated as the sum of the shortest path length between the node and any other node in the graph. This algorithm produces different results in directed and undirected graphs. For an outgoing connection from a node, it can have high closeness centrality measure while for an incoming connection it can have a low measure.
@@ -373,7 +373,7 @@ In the following figure \ref{fig14}, node $I$ has the highest closeness centrali
     \label{fig14}
 \end{figure}
 
-The time complexity of this algorithm O($v^3$) where $v$ is the number of vertices in a graph. Faster methods also have been proposed with time complexity O($\alpha * v$) where $\alpha \approx 10 - 100$\cite{59}. This measure is being used in telecommunication networks for measuring the speed of the network and also in extracting important words from a document.
+The time complexity of this algorithm $O(v^3)$ where $v$ is the number of vertices in a graph. Faster methods also have been proposed with time complexity $O(\alpha * v)$ where $\alpha \approx 10 - 100$\cite{59}. This measure is being used in telecommunication networks for measuring the speed of the network and also in extracting important words from a document.
 
 \subsection{Betweenness Centrality}
 Betweenness centrality is the measure of importance on the flow of data of a given node in a graph. It identifies nodes that connect two or more sub-parts of a graph. It was first developed by Freeman in 1971\cite{32}.
@@ -386,7 +386,7 @@ The algorithm calculates the shortest path between a pair of nodes using BFS. Ev
     \label{fig15}
 \end{figure}
 
-The time complexity of this algorithm O($v*e$) where $v$ is the number of vertices and $e$ is edges in the graph. This algorithm is being used in social networks to find out influencer accounts and in telecommunication networks to pinpoint important nodes in the network to prevent these nodes from failing.
+The time complexity of this algorithm $O(v * e)$ where $v$ is the number of vertices and $e$ is edges in the graph. This algorithm is being used in social networks to find out influencer accounts and in telecommunication networks to pinpoint important nodes in the network to prevent these nodes from failing.
 
 \section{Graph Neural Networks}
 \label{sec:gnn}
