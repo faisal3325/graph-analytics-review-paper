@@ -38,38 +38,21 @@ Because of this vast amount of data, there was a need to develop more efficient 
 
 Since generating data is an easier task than getting useful insights out of it, there was a need to emphasize on its analysis. But because of the sheer volume of high dimensional, unstructured, and highly inconsistent data, running traditional methods for analysis might miss out on the hidden structures of the data. Thus, there was a need to devise powerful algorithms and provide high computational powers that can solve these problems. Due to the introduction of cloud computing and its scalable nature, researchers were able to develop algorithms to mine and make out meaningful insights from this data. With the right analysis methods, it can yield greater insights leading to stronger and strategic decisions. Using big data analysis, Netflix manages to easily save \$1 billion every year~\cite{5}. Wikibon, an organization sharing tech-related knowledge, has estimated the market worth of big data analytics to a whopping \$49 billion for the year 2019~\cite{6}.
 
-\textbf{The paper's contributions} The goal of this paper is to present an overview of graph analytics and its methods. It has also highlighted the challenges of graph analytics along-with brief comparison of different analytical methods. It will be useful as a reference to those looking to apply these analytical methods on their graph data. Each algorithm covered has also presented the applications and benefits of it over others. Deep learning on graph using graph neural networks has also be surveyed. As far as seen, there's no survey paper covering these analytics methods and Graph Neural Network together.
+\textbf{The paper's contributions} The goal of this paper is to present an overview of graph analytics and its methods. It has also highlighted the challenges of graph analytics along-with a brief comparison of different analytical methods. It will be useful as a reference to those looking to apply these analytical methods on their graph data. Each algorithm covered has also presented the applications and benefits of it over others. Deep learning on graph using graph neural networks has also be surveyed. As far as seen, there's no survey paper covering these analytics methods and Graph Neural Network together.
 
-\textbf{Organization of the survey paper} The paper is formatted in the following way. The paper will start with a brief overview of need for graph analytics on graph data in Section \textbf{\ref{sec:background}}. This section will also present taxonomy of the frameworks being surveyed in this paper. Sections \textbf{\ref{sec:path} - \ref{sec:centrality}} will discuss four major types of analysis and their methods. Also, Graph Neural Network will be briefly explored in \textbf{\ref{sec:gnn}}. A comparison will then be done on some of these techniques in Section \textbf{\ref{sec:discussion}}. The paper will finally conclude with the observations from this report in Section \textbf{\ref{sec:conclusion}}.
+\textbf{Organization of the survey paper} The paper is formatted in the following way. The paper will start with a brief overview of the need for graph analytics on graph data in Section \textbf{\ref{sec:background}}. This section will also present taxonomy of the frameworks being surveyed in this paper. Sections \textbf{\ref{sec:path} - \ref{sec:centrality}} will discuss four major types of analysis and their methods. Also, Graph Neural Network will be briefly explored in \textbf{\ref{sec:gnn}}. A comparison will then be done on some of these techniques in Section \textbf{\ref{sec:discussion}}. The paper will finally conclude with the observations from this report in Section \textbf{\ref{sec:conclusion}}.
 
 \section{Graph Analytics}
 \label{sec:background}
 \subsection{Background}
-Often data generated have relations among themselves. This data can be structured or unstructured or a mix of both. Since it is not feasible to understand these relations using the traditional big data analytics techniques, a better model had to be devised. A graph model was proposed to connect the data. Graphs are effective for analyzing, making recommendation systems, and mining social networks. Due to the flexibility of this model it allows large quantities of information from many sources to be quickly absorbed and linked in ways that addressed the limitations in the source structures. A good way of representing the graph model is connections of a social media account; it represents a graphical structure with connections (edges) formed between different accounts (nodes/entities). This model enabled analyzing relationships and deducing interesting patterns between accounts (entities) in the structure. Graph analytics is a term used to define these methods of analysis. It is defined as an alternative to the conventional data warehouse model as a system for allowing analysts to check structured and unstructured data from different sources. Some business use cases of graph analytics include healthcare quality analysis, cybersecurity, and correlation findings.
+Often data generated have relations among themselves. This data can be structured or unstructured or a mix of both. Since it is not feasible to understand these relations using the traditional big data analytics techniques, a better model had to be devised. A graph model was proposed to connect the data. Graphs are effective for analyzing, making recommendation systems, and mining social networks. Due to the flexibility of this model it allows large quantities of information from many sources to be quickly absorbed and linked in ways that addressed the limitations in the source structures. A good way of representing the graph model is the connections of a social media account; it represents a graphical structure with connections (edges) formed between different accounts (nodes/entities). This model enabled analyzing relationships and deducing interesting patterns between accounts (entities) in the structure. Graph analytics is a term used to define these methods of analysis. It is defined as an alternative to the conventional data warehouse model as a system for allowing analysts to check structured and unstructured data from different sources. Some business use cases of graph analytics include healthcare quality analysis, cybersecurity, and correlation findings.
 
-Since the graph data is being covered in reference to big data, this paper will cover such algorithms which are efficient in running on big graph data.
+Since the graph data is being covered about big data, this paper will cover such algorithms that are efficient in running on big graph data.
 
 \subsection{Taxonomy}
 In this section, the paper presents taxonomy of graph analytics techniques, as shown in Table \ref{tab:taxonomy_table}.
 
-
-% \begin{table*}
-% \caption{Taxonomy and citations of graph analytics techniques}
-% \label{taxonomy_table}
-% \setlength{\tabcolsep}{3pt}
-% \begin{tabular}{@{} cc @{}}
-% \hline
-% Technique& 
-% Citations \\
-% \hline
-% Path Analysis 
-% & 1 \\
-% 1 & 1 \\
-% \hline
-% \end{tabular}
-% \end{table*}
-
-\begin{table*}[htb]
+\begin{table*}[]
     \caption{Taxonomy and citations of Graph Analytic techniques}
     \label{tab:taxonomy_table}
     \centering
@@ -145,11 +128,11 @@ In this section, the paper presents taxonomy of graph analytics techniques, as s
 
 \textbf{Path Analysis} algorithms are used for discovering new or optimal paths in a graph. There are four types of path analysis algorithms, parallel breadth-first search, parallel depth-first search, single-source shortest path, all-pairs shortest path, minimum weight spanning tree, and random walk.
 
-\textbf{Connectivity Analysis} algorithms are used for checking the strength between nodes and sub graphs in a graph. Kosaraju's BFS and DFS are two algorithms surveyed for connectivity analysis.
+\textbf{Connectivity Analysis} algorithms are used for checking the strength between nodes and subgraphs in a graph. Kosaraju's BFS and DFS are two algorithms surveyed for connectivity analysis.
 
-\textbf{Community Analysis} algorithms are used for analyzing communities, their strength and attributes. This paper has covered label propagation, Louvain modularity, node clustering coefficient, average clustering coefficient, and Bron-Kerbosch.
+\textbf{Community Analysis} algorithms are used for analyzing communities' strength and attributes. This paper has covered label propagation, Louvain modularity, node clustering coefficient, average clustering coefficient, and Bron-Kerbosch.
 
-\textbf{Centrality Analysis} algorithms are used to detect importance of nodes. It is used majorly in social network analysis. Degree centrality, Eigenvector centrality, Katz centrality, PageRank centrality, closeness centrality, and betweenness centrality are some of centrality analysis algorithms.
+\textbf{Centrality Analysis} algorithms are used to detect the importance of nodes. It is used majorly in social network analysis. Degree centrality, Eigenvector centrality, Katz centrality, PageRank centrality, closeness centrality, and betweenness centrality are some of the centrality analysis algorithms.
 
 \textbf{Graph Neural Network (GNN)} is deep learning applied on graph data for predictions of node labels and/or generating graphs and nodes. Recurrent Graph Neural Networks, Convolutional Graph Neural Networks, Graph Autoencoders, Spatial-Temporal Graph Neural Networks are some of the most common GNN models surveyed briefly in this paper.  
 
@@ -168,14 +151,14 @@ The BFS algorithm starts at an arbitrary node in the graph and travels to all no
     \label{fig1}
 \end{figure}
 
-The problem with serial BFS is that time and memory consumption depends on the number of branches and the depth of the graph. In worst case, for a graph with ${b}$ branches and ${l}$ levels, time and space complexity is then given by O($b^l$). Since we are dealing with big data analysis where data is huge, it will consume a lot of time.
+The problem with serial BFS is that time and memory consumption depends on the number of branches and the depth of the graph. In the worst case, for a graph with ${b}$ branches and ${l}$ levels, time and space complexity is then given by O($b^l$). Since we are dealing with big data analysis where data is huge, it will consume a lot of time.
 
 To solve this issue with BFS, the concept of parallelism was introduced. Parallel computing distributes the load to multiple processors hence taking of load from a single process and distributing it to others to reduce the overhead. The parallel version of BFS can be done using two approaches either using shared memory or by using distributed memory. The shared memory implementation of BFS generates Breadth-First Spanning Trees (BFSTs) of a given graph G with $n$ nodes. The time required in this step is O($log(d).log(n)$) where $d$ represents the diameter of G which is far more better than serial BFS with time complexity O($b^d$). The number of processors used for this process is dependent on the nodes; the time complexity is defined by O($n^3$) \cite{36}. If the graph is undirected, the algorithm will generate $n$ BFSTs.
 
 In the distributed memory version of BFS, each process has its memory and they have to share messages amongst each other to share their data. Since there is an overhead of communication in this approach, shared memory BFS will provide higher bandwidth with low latency \cite{37}.
 
 \subsection{Parallel Depth-First Search}
-Parallel depth-first search also deals with parallelism as discussed in the previous section. To understand this, its necessary to go through serial depth-first search (DFS).
+Parallel depth-first search also deals with parallelism as discussed in the previous section. To understand this, it is necessary to go through serial depth-first search (DFS).
 
 The DFS algorithm starts at an arbitrary node and travels deep into a path before coming back a step and exploring the next path. This algorithm is used on hierarchical data. Since the algorithm might face issues with infinite loops due to the fact we are traversing on a graph, similarly to BFS, DFS for graphs also have to be implemented with a mechanism to store visited nodes. The time complexity of DFS is similar to BFS, O($b^d$) while the space complexity is O($d$).
 
@@ -186,7 +169,7 @@ There are many implementations of parallel DFS and most of them showed logarithm
 \subsection{Single-Source Shortest Path}
 Single-Source Shortest Path (SSSP) evaluates the shortest path from a given node to other nodes of a weighted digraph. It is also called as Bellman-Ford or Bellman-Ford-Moore algorithm\cite{41}. It was first proposed by Shimbel\cite{42} in 1955.
 
-SSSP is capable of computing shortest path on graphs with "negative cycle" which makes it different from other shortest path algorithms. The algorithm works in bottom-up approach. It calculates first the shortest distance with at max one edge in a path, then it will consider edges with max two edges in the path and so on. It basically overestimates first the length of the path then reduces those estimations by finding shorter paths. 
+SSSP is capable of computing the shortest path on graphs with "negative cycle" which makes it different from other shortest path algorithms. The algorithm works in a bottom-up approach. It calculates first the shortest distance with at max one edge in a path, then it will consider edges with max two edges in the path and so on. It overestimates first the length of the path then reduces those estimations by finding shorter paths. 
 
 \begin{figure}[!h]
     \centerline{\includegraphics[scale=0.55]{figures/sssp.pdf}}
@@ -194,22 +177,22 @@ SSSP is capable of computing shortest path on graphs with "negative cycle" which
     \label{fig2}
 \end{figure}
 
-In the above figure \ref{fig2}, shortest path of a graph is computed step-by-step using SSSP algorithm. Path costs are given. In step 1, all the nodes except start is initialized with positive infinity. Second step starts from the start node and traverses to all its neighbors. As the algorithm moves to its neighbors, path cost is assigned to the weights of the visited node. Now, in step 3, it can be noted that the node with weight 10 is replaced by 5 and the path from start to it is removed. The algorithm has computed a shortest path (path with least cost) from an alternate route even though it involves visiting one node before reaching to destination. This way, it computes and replaces weights as it proceeds to move through the graph. In step 4, we have the final path which costs just 6 to traverse through all the 5 nodes.
+In the above figure \ref{fig2}, the shortest path of a graph is computed step-by-step using the SSSP algorithm. Path costs are given. In step 1, all the nodes except start are initialized with positive infinity. The second step starts from the start node and traverses to all its neighbors. As the algorithm moves to its neighbors, the path cost is assigned to the weights of the visited node. Now, in step 3, it can be noted that the node with weight 10 is replaced by 5 and the path from start to it is removed. The algorithm has computed the shortest path (path with least cost) from an alternate route even though it involves visiting one node before reaching to the destination. This way, it computes and replaces weights as it proceeds to move through the graph. In step 4, we have the final path which costs just 6 to traverse through all the 5 nodes.
 
 The time complexity of SSSP is given by O($V*E$) while the space complexity is O($V$) where $V$ denotes vertices and $E$ is edges of a graph. It is used for detecting link failures in a network and come up with new links or routes in no time.
 
 \subsection{All-Pairs Shortest Path}
-To understand All-Pairs Shortest Path (APSP) algorithm, the problem should be discussed first. APSP problem is for finding minimum distance between every vertices of a particular edge. The graph should be directed with weights. To solve this APSP problem, multiple variants of APSP algorithms were proposed\cite{43, 44, 45, 46}. This paper will first look into Floyd-Warshall algorithm which is quite popular amongst other APSP algorithms. Unlike SSSP, this algorithm does not work on "negative cycles" graph however, it can work on both directed and undirected graphs.
+To understand the All-Pairs Shortest Path (APSP) algorithm, the problem should be discussed first. APSP problem is for finding the minimum distance between every vertex of a particular edge. The graph should be directed with weights. To solve this APSP problem, multiple variants of APSP algorithms were proposed\cite{43, 44, 45, 46}. This paper will first look into the Floyd-Warshall algorithm which is quite popular amongst other APSP algorithms. Unlike SSSP, this algorithm does not work on the "negative cycles" graph however, it can work on both directed and undirected graphs.
 
-The output of this algorithm is a matrix representing the shortest distance from a node to other nodes. When a node is unreachable to an another node, the algorithm returns infinity which signifies no path can be formed. The figure shown below  
+The output of this algorithm is a matrix representing the shortest distance from a node to other nodes. When a node is unreachable to another node, the algorithm returns infinity which signifies no path can be formed. The figure shown below  
 
 
 
-The time complexity of this algorithm is O($n^3$) where $n$ is number of vertices and space complexity is given by O($n^2$). Some common use cases of APSP algorithm are
+The time complexity of this algorithm is O($n^3$) where $n$ is the number of vertices and space complexity is given by O($n^2$). Some common use cases of the APSP algorithm are
 
 
 \subsection{Minimum Weight Spanning Tree}
-Minimum Weight Spanning Tree (MST) is applied on a tree where a path needs to be traced with minimum weight among all nodes. MST is used mostly to make clusters in a graph. K-Means is used along with MST to find clusters. MST was first developed by Borůvka in 1926\cite{47}. The most famous known adoption of Borůvka's algorithm was done by Jarnik in 1930\cite{48} which is sometimes called as Prim's algorithm as he rediscovered and republished it a few years later\cite{49}. Similar to SSSP, Jarnik's algorithm can be used on "negative cycle" graphs.
+Minimum Weight Spanning Tree (MST) is applied to a tree where a path needs to be traced with minimum weight among all nodes. MST is used mostly to make clusters in a graph. K-Means is used along with MST to find clusters. MST was first developed by Borůvka in 1926\cite{47}. The most famous known adoption of Borůvka's algorithm was done by Jarnik in 1930\cite{48} which is sometimes called Prim's algorithm as he rediscovered and republished it a few years later\cite{49}. Similar to SSSP, Jarnik's algorithm can be used on "negative cycle" graphs.
 
 \begin{figure}[!h]
     \centerline{\includegraphics[scale=0.55]{figures/mst.pdf}}
@@ -217,14 +200,14 @@ Minimum Weight Spanning Tree (MST) is applied on a tree where a path needs to be
     \label{fig3}
 \end{figure}
 
-In above figure \ref{fig3}, MST is shown in action based on Jarnik's algorithm. In step 1, node 1 is picked up and its neighbors are assigned the path cost as a key-value pair. Node 1 is added to a list, hence darkened. In step 2, the lowest key-value pair among 7 and 2 is picked up, 2 is the lowest. Its neighbors is then assigned the weight as a key-value pair and 2 is added to the list. Similarly, in step 3 also 5 is assigned its weight. The algorithm will repeat this process until all nodes are added to the list. Now the order in which the nodes are picked up is our the path of the tree. It is noticed that individual node pair paths are considered rather than the whole tree while formulating the path.
+In the above figure \ref{fig3}, MST is shown in action based on Jarnik's algorithm. In step 1, node 1 is picked up and its neighbors are assigned the path cost as a key-value pair. Node 1 is added to a list, hence darkened. In step 2, the lowest key-value pair among 7 and 2 are picked up, 2 is the lowest. Its neighbors are then assigned the weight as a key-value pair and 2 is added to the list. Similarly, in step 3 also 5 is assigned its weight. The algorithm will repeat this process until all nodes are added to the list. Now the order in which the nodes are picked up is our the path of the tree. It is noticed that individual node pair paths are considered rather than the whole tree while formulating the path.
 
-Time complexity of this algorithm is O($v^2$) where $v$ is the number of vertices. This algorithm is used for analysing correlations between nodes in a graph. MST has been implemented to minimize commute cost in Papua New Guinea\cite{13} and for investigating molecular structure of Hepatitis C\cite{50}.
+The time complexity of this algorithm is O($v^2$) where $v$ is the number of vertices. This algorithm is used for analyzing correlations between nodes in a graph. MST has been implemented to minimize commute cost in Papua New Guinea\cite{13} and for investigating the molecular structure of Hepatitis C\cite{50}.
 
 \subsection{Random Walk}
-Random walk algorithm is a basic algorithm applied on analysing huge graphs. The algorithm starts at a node, randomly chooses a node to move to and then moves on to another randomly choosen node. The algorithm does this until it walks over all nodes in the graph. It maintains a list of visited nodes. This algorithm can be applied only on directed and unweighted graphs. Time complexity is given by O($\sqrt{n}\log(n)$) where $n$ is the population size.
+A random walk algorithm is a basic algorithm applied to analyzing huge graphs. The algorithm starts at a node, randomly chooses a node to move to and then moves on to another randomly chosen node. The algorithm does this until it walks over all nodes in the graph. It maintains a list of visited nodes. This algorithm can be applied only on directed and unweighted graphs. Time complexity is given by O($\sqrt{n}\log(n)$) where $n$ is the population size.
 
-Random walk has been used to analyse behvaiors; to analyse a pattern was invloved or it is random. It has been used in biology to understand biological processes\cite{51} and also been used to analyse stock market\cite{52}. Mostly random walk is used in conjugation with other algorithms\cite{53} or to improve training of machine learning algorithms\cite{54}. It is used as a clustering algorithm generally on graph data.
+The random walk has been used to analyze behaviors; to analyze a pattern was involved or it is random. It has been used in biology to understand biological processes\cite{51} and also been used to analyze stock market\cite{52}. Random walk is mostly used in conjugation with other algorithms\cite{53} or to improve the training of machine learning algorithms\cite{54}. It is used as a clustering algorithm generally on graph data.
 
 \section{Connectivity Analysis}
 \label{sec:connectivity}
@@ -241,7 +224,7 @@ A component comprises two or more nodes connected. A concept of Strongly Connect
 
 In the above figure \ref{fig4}, there are two SCCs, one with {$1, 2, 3$} nodes and the other with {$7, 5, 6$} nodes connected with node $4$. As can be seen that $1$ is connected with $2$ and $2$ is connected with $3$ which is then connected with $1$, thus it is said that both of these components are strongly connected.
 
-SCCs help in forming clusters in a graph. With the help of such clusters, analysis can be performed in the network. Some use cases of connectivity analysis includes social network and internet network analysis. Now the problem lies in finding out such SCCs. DFS and BFS help find such components. Kosaraju devised an algorithm which in linear time helped in finding out SCCs\cite{40}. This paper will cover Kosaraju's algorithm's modification on BFS and DFS.
+SCCs help in forming clusters in a graph. With the help of such clusters, analysis can be performed in the network. Some use cases of connectivity analysis include social network and internet network analysis. Now the problem lies in finding out such SCCs. DFS and BFS help find such components. Kosaraju devised an algorithm which in linear time helped in finding out SCCs\cite{40}. This paper will cover Kosaraju's algorithm's modification on BFS and DFS.
 
 \subsection{Kosaraju's BFS and DFS}
 Kosaraju's original proposed algorithms were based on DFS and some implementations exist of it on BFS. The DFS implementation does a simple trick by performing DFS two times on the same graph. Taking figure \ref{fig4} as an example, the algorithm will perform the first DFS on the graph. It will reverse the directions in the graph and start at $7$, explore in the order $7-6-5-4-1-3-2$. Now the node which finished first or visited at the end will be assigned the finishing position starting from 1. The nodes will be renamed with their corresponding positions as shown below in figure \ref{fig5}. 
@@ -260,7 +243,7 @@ Kosarju's BFS algorithm also works in the same way; it performs BFS twice instea
 \label{sec:community}
 For a given graph network, a community is defined by a group of nodes that have dense links amongst themselves and sparse links with the other group of nodes. Community analysis points out interactions between nodes. It is used for clustering nodes with similar attributes. This analysis also helps in analyzing how nodes are clustered or partitioned. The strength of a particular group can also be determined by this analysis. Community analysis is used in identifying proteins involved in a biochemical process, recommendations for a group of people, and evaluating social networks. 
 
-Strongly connected components has been discussed in the previous section \ref{sec:scc} which is a part of community analysis. Weakly connected components also helps in defining structure of the graph by analysisng nodes which are loosely connected in a graph.
+Strongly connected components have been discussed in the previous section \ref{sec:scc} which is a part of community analysis. Weakly connected components also help in defining the structure of the graph by analyzing nodes that are loosely connected in a graph.
 
 \subsection{Label Propagation}
 Raghavan et al. proposed this algorithm back in 2007\cite{16}. The algorithm worked on exploring communities in a graph network. 
@@ -276,35 +259,35 @@ The algorithm functions in the following way. Consider a node $n$ with neighbors
 This algorithm performs near-linear time as mentioned by Raghavan et al.\cite{16} which makes it a better contender among other community analysis algorithms. For a graph with $n$ nodes and $e$ edges, its time complexity is O($n + e$).
 
 \subsection{Louvain Modularity}
-Louvain modularity algorithm is used to identify the quality or accuracy of a community. It also helps in formation of communities in huge networks. It is a hierarchical clustering algorithm. This algorithm was developed by Blondel et al. in 2008 \cite{20}. Using modularity, it also analyses the accuracy of community formation. Blondel et al. calimed that it is an exceptional algorithm in terms of accuracy to extract communities among other community formation algorithms and gives good performance on large graphs.
+Louvain modularity algorithm is used to identify the quality or accuracy of a community. It also helps in the formation of communities in huge networks. It is a hierarchical clustering algorithm. This algorithm was developed by Blondel et al. in 2008 \cite{20}. Using modularity, it also analyses the accuracy of community formation. Blondel et al. claimed that it is an exceptional algorithm in terms of accuracy to extract communities among other community formation algorithms and gives good performance on large graphs.
 
-The algorithm compares newly formed communities with random network based on the density of nodes in a community. It does so by assigning modularity scores to the communities. Modularity score is the measure of how well nodes are divided into communities. The figure \ref{fig7} shown below will help in understanding the working of the algorithm.
+The algorithm compares newly formed communities with random networks based on the density of nodes in a community. It does so by assigning modularity scores to the communities. The modularity score is the measure of how well nodes are divided into communities. Figure \ref{fig7} shown below will help in understanding the working of the algorithm.
 
 \begin{figure}[!h]
     \centerline{\includegraphics[scale=0.7]{figures/louvain.pdf}}
-    \caption{Louvain Modularity algorithm applied on a graph. The algorithm works in two passes. First pass involves communities formation and aggregation to form super communities; second pass peforms aggregation on these communities to create new communities in the network}
+    \caption{Louvain Modularity algorithm applied on a graph. The algorithm works in two passes. The first pass involves communities formation and aggregation to form super communities; second pass performs aggregation on these communities to create new communities in the network}
     \label{fig7}
 \end{figure}
 
 Time complexity is given by O($n^2$) where $n$ is the number of nodes. This algorithm has been used for creating recommendation systems\cite{55}, extracting trends from social media\cite{56}, and understanding community structures in the human brain network\cite{57}.
 
 \subsection{Node Clustering Coefficient and Average Clustering Coefficient}
-The coefficient checks to what degree nodes in a network tend to cluster together, it does so by identifying the number of triangles in the graph which pass through each node. This measures the cohesiveness of clusters. The coefficient is classified into two types: node clustering coefficient and average clustering coefficient. Node Clustering Coefficient is also known as Local Clustering Coefficient and is applied on undirected and unweighted graphs. Average Clustering Coefficient is known as Global Clustering Coefficient.
+The coefficient checks to what degree nodes in a network tend to cluster together, it does so by identifying the number of triangles in the graph which pass through each node. This measures the cohesiveness of clusters. The coefficient is classified into two types: node clustering coefficient and average clustering coefficient. Node Clustering Coefficient is also known as the Local Clustering Coefficient and is applied to undirected and unweighted graphs. Average Clustering Coefficient is known as the Global Clustering Coefficient.
 
-To understand average clustering coefficient, node clustering coefficient needs to be understood first. The latter of a node is the measure of the closeness of its neighbors to being a complete graph. This is measured using the triangle counting method. Average clustering coefficient is then the total of these node clustering coefficients.
+To understand the average clustering coefficient, the node clustering coefficient needs to be understood first. The latter of a node is the measure of the closeness of its neighbors to being a complete graph. This is measured using the triangle counting method. The average clustering coefficient is then the total of these node clustering coefficients.
 
 \begin{figure}[!h]
     \centerline{\includegraphics[scale=0.51]{figures/node_clustering.pdf}}
-    \caption{Local clustering coefficient of different graphs with respect to the greyed-out node. The first graph has coefficient measure 1 since all its neighbors are connected with each other. In the second graph, the measure is 2/3 since one pair of the neighoring nodes are not connected. The third graph shows coefficient 0 since none of its neighbors are connected to each other.}
+    \caption{Local clustering coefficient of different graphs concerning the greyed-out node. The first graph has coefficient measure 1 since all its neighbors are connected. In the second graph, the measure is 2/3 since one pair of the neighboring nodes are not connected. The third graph shows coefficient 0 since none of its neighbors are connected.}
     \label{fig8}
 \end{figure}
 
-The time complexity of clustering coefficient is given by $O(n^3)$ where $n$ is number of nodes in the graph. This method is used to analyse social networks and web pages with a shared topic amongst them.
+The time complexity of the clustering coefficient is given by $O(n^3)$ where $n$ is the number of nodes in the graph. This method is used to analyze social networks and web pages with a shared topic amongst them.
 
 \subsection{Bron-Kerbosch}
-Bron-Kerbosch finds out maximal cliques in a graph. It uses a list of solutions to find the optimal solution. Maximal clique is a group of nodes where each nodes are connected with every other nodes and no additional node can be added to the group disturbing the property of the group.
+Bron-Kerbosch finds out maximal cliques in a graph. It uses a list of solutions to find the optimal solution. A maximal clique is a group of nodes where each node are connected with every other node and no additional node can be added to the group disturbing the property of the group.
 
-To find the solution, the algorithm uses recursive backtracking. Consider the given graph $G$ in figure \ref{fig9}, there are two maximal cliques, one with nodes $\{1, 2, 3\}$ and the other with node $\{4\}$. The algorithm initiates by first selecting an arbitrary node, consider it selects node $1$. The algorithm will now look for neighbors of $1$ which are $\{2, 3\}$. Among these nodes, it will pick up one arbitrary node, let that node be $2$. Now, the algorithm will look for neighbors of $2$ which are $\{1, 3, 4\}$, since $4$ is not connected with $1$ and $3$, it is not part of the clique thus it will be discarded by the algorithm resulting the set reduce to $\{1, 3\}$. Now, the algorithm proceeds with an arbitrary node which is not selected before, that is $3$. Neighbors of $3$ include $\{1, 2\}$. Now intersecting all these neighbor sets found will give us our clique which is $\{1, 2, 3\}$. Similarly performing the same procedure from $4$, the algorithm will only find $2$. With simple set operations Bron-Kerbosch algorithm succesfully identifies communities in graphs.
+To find the solution, the algorithm uses recursive backtracking. Consider the given graph $G$ in figure \ref{fig9}, there are two maximal cliques, one with nodes $\{1, 2, 3\}$ and the other with node $\{4\}$. The algorithm initiates by first selecting an arbitrary node, consider it selects node $1$. The algorithm will now look for neighbors of $1$ which are $\{2, 3\}$. Among these nodes, it will pick up one arbitrary node, let that node be $2$. Now, the algorithm will look for neighbors of $2$ which are $\{1, 3, 4\}$, since $4$ is not connected with $1$ and $3$, it is not part of the clique thus it will be discarded by the algorithm resulting the set reduce to $\{1, 3\}$. Now, the algorithm proceeds with an arbitrary node that is not selected before, which is $3$. Neighbors of $3$ include $\{1, 2\}$. Now intersecting all these neighbor sets found will give us our clique which is $\{1, 2, 3\}$. Similarly performing the same procedure from $4$, the algorithm will only find $2$. With simple set operations, Bron-Kerbosch algorithm successfully identifies communities in graphs.
 
 \begin{figure}[!h]
     \centerline{\includegraphics[scale=0.8]{figures/bron-kerbosch.pdf}}
@@ -312,14 +295,14 @@ To find the solution, the algorithm uses recursive backtracking. Consider the gi
     \label{fig9}
 \end{figure}
 
-Due to the recursive nature of the algorithm time complexity of this algorithm is given by $O(3^{n/3})$ where $n$ is vertex of the graph. This algorithm is widely used to solve chemical problems in computational chemistry.
+Due to the recursive nature of the algorithm time complexity of this algorithm is given by $O(3^{n/3})$ where $n$ is the vertex of the graph. This algorithm is widely used to solve chemical problems in computational chemistry.
 
 \section{Centrality Analysis}
 \label{sec:centrality}
 Centrality analysis is used to identify the relevance between each node. It measures the importance of nodes. It is used to find the influence of people in a social network, used to get the most popular web page based on access, and key nodes in a network. Although this method was introduced specifically for social network analysis, it has been adopted in many other fields.
 
 \subsection{Degree Centrality}
-Degree centrality was proposed by Freeman in 1979\cite{25}. It is used for measuring the relationships of a node. For a directed graph, it divides the relationships into indegree and outdegree where indegree is the number of connections coming in while outdegree is the number of outgoing connections. It shows the activity of a node. In simple terms, it states higher the number of neighbors more important the node is. This way degree centrality is used for identifying most influential accounts on Twitter or other social networking platforms. Since it just involves propagating through the network and calculates the degree(inwards and outwards connections) of each node, it is a simple method to implement. The following figure \ref{fig10} depicts a network of nodes with degree centrality algorithm applied over it.
+Degree centrality was proposed by Freeman in 1979\cite{25}. It is used for measuring the relationships of a node. For a directed graph, it divides the relationships into indegree and outdegree where indegree is the number of connections coming in while outdegree is the number of outgoing connections. It shows the activity of a node. In simple terms, it states higher the number of neighbors more important the node is. This way degree centrality is used for identifying the most influential accounts on Twitter or other social networking platforms. Since it just involves propagating through the network and calculates the degree(inwards and outwards connections) of each node, it is a simple method to implement. The following figure \ref{fig10} depicts a network of nodes with the degree centrality algorithm applied over it.
 
 \begin{figure}[!h]
     \centerline{\includegraphics[scale=0.45]{figures/degree_centrality.pdf}}
@@ -330,7 +313,7 @@ Degree centrality was proposed by Freeman in 1979\cite{25}. It is used for measu
 The time complexity of this algorithm thus will be O($v$) where $v$ is vertices of the graph.
 
 \subsection{Eigenvector Centrality}
-The eigenvector centrality method was proposed by Bonacich\cite{26}. It is the influence a node has in a network. A node is scored based on its connections with nodes with high scores. This means, a node connected to a few other nodes but these nodes have high influence, then the former node's eigenvector value will be very high. It can be inferred that connecting to a few highly influential nodes will give a boost in the eigenvector value.
+The eigenvector centrality method was proposed by Bonacich\cite{26}. It is the influence a node has in a network. A node is scored based on its connections with nodes with high scores. This means, a node connected to a few other nodes but these nodes have high influence, then the former node's eigenvector value will be very high. It can be inferred that connecting to a few highly influential nodes will give a boost to the eigenvector value.
 
 When the algorithm initializes, every node starts with an equal or zero value. As the algorithm computes scores, nodes with a higher number of connections will get high scores. These high scores are then propagated to their connected nodes. The algorithm performs a few iterations until the value stabilizes. Thus generating eigenvector value for all nodes. The following figure \ref{fig11} shows nodes connected.
 
@@ -341,7 +324,7 @@ When the algorithm initializes, every node starts with an equal or zero value. A
 \end{figure}
 
 \subsection{Katz Centrality}
-Katz centrality algorithm was discovered by Leo Katz in 1953 \cite{58}. This algorithm is used to measure the influence of a node within a graph network. It does so by computing the influence of a node by taking into consideration the number of first degree neighbors of it also taking into fact the number of the nodes connected to the main node through these neighbor nodes. But these indirect connections are penalized by an attenuation factor $\alpha$. A weight defined by $\alpha$ is given to connections made between nodes and $\alpha$$^d$  as the distance between nodes where $d$ is the degree of connection.
+Katz centrality algorithm was discovered by Leo Katz in 1953 \cite{58}. This algorithm is used to measure the influence of a node within a graph network. It does so by computing the influence of a node by taking into consideration the number of first-degree neighbors of it also taking into the fact the number of the nodes connected to the main node through these neighbor nodes. But these indirect connections are penalized by an attenuation factor $\alpha$. A weight defined by $\alpha$ is given to connections made between nodes and $\alpha$$^d$  as the distance between nodes where $d$ is the degree of connection.
 
 Consider the following figure \ref{fig12}. To find influence of node $A$, the weight of the connections between its neighbors is determined. Suppose $\alpha$ is $0.2$, then the weight assigned to the path between $A$ and $C$ will be $0.2^1 = 0.1$. Weight assigned to connection between $A$ and $G$ will be $0.2^2 = 0.4$ since $G$ is a second degree connection through $C$. Similarly, connection between $A$ and $F$ will be weighted $0.2^3 = 0.8$.
 
@@ -351,12 +334,12 @@ Consider the following figure \ref{fig12}. To find influence of node $A$, the we
     \label{fig12}
 \end{figure}
 
-The time complexity of this algorithm O($v^3$) where $v$ is number of vertices in graph. Its applications include computation of citations in citation network hosted on the web, analysing influential accounts on social networks and for analyzing neurons in a neural network in brain.
+The time complexity of this algorithm O($v^3$) where $v$ is the number of vertices in a graph. Its applications include computation of citations in citation networks hosted on the web, analyzing influential accounts on social networks and analyzing neurons in a neural network in the brain.
 
 \subsection{PageRank Centrality}
-PageRank is a popular algorithm developed by Page et al. in late 1999 and named after Larry Page, co-founder of Google. This algorithm has been used by the Google Search engine for a long period of time. PageRank measured ranking of web pages based on its importance. It was patented until 24th of September 2019.
+PageRank is a popular algorithm developed by Page et al. in late 1999 and named after Larry Page, co-founder of Google. This algorithm has been used by the Google Search engine for a long period. PageRank measured ranking of web pages based on its importance. It was patented until the 24th of September 2019.
 
-The algorithm measures progressive influence of nodes. It works on the assumption that a node is important if it is connected by a higher amount of nodes. The following figure \ref{fig13} explains well how PageRank works on web pages.
+The algorithm measures the progressive influence of nodes. It works on the assumption that a node is important if it is connected by a higher amount of nodes. The following figure \ref{fig13} explains well how PageRank works on web pages.
 
 \begin{figure}[!h]
     \centerline{\includegraphics[scale=0.8]{figures/pagerank.pdf}}
@@ -364,10 +347,10 @@ The algorithm measures progressive influence of nodes. It works on the assumptio
     \label{fig13}
 \end{figure}
 
-The time complexity of PageRank is O($n + m$) where $n$ is number of nodes and $m$ is number of edges. This algorithm was the core of Google's search engine. It has been also used by computational neuroscientists in understanding the neural network.
+The time complexity of PageRank is O($n + m$) where $n$ is the number of nodes and $m$ is the number of edges. This algorithm was the core of Google's search engine. It has been also used by computational neuroscientists in understanding the neural network.
 
 \subsection{Closeness Centrality}
-Closeness centrality algorithm detects nodes that can swiftly transmit information within a graph. Closeness centrality of a given node is the measure of its average distance from other nodes. Higher the measure lower the average distance is. It is calculated as the sum of the shortest path length between the node and any other node in the graph. This algorithm produces different results in directed and undirected graphs. For a outgoing connection from a node, it can have high closeness centrality measure while for an incoming connection it can have a low measure.
+The closeness centrality algorithm detects nodes that can swiftly transmit information within a graph. The closeness centrality of a given node is the measure of its average distance from other nodes. Higher the measure lower the average distance is. It is calculated as the sum of the shortest path length between the node and any other node in the graph. This algorithm produces different results in directed and undirected graphs. For an outgoing connection from a node, it can have high closeness centrality measure while for an incoming connection it can have a low measure.
 
 In the following figure \ref{fig14}, node $I$ has the highest closeness centrality measure as it is connected by a significant number of nodes in a short distance.
 
@@ -377,12 +360,12 @@ In the following figure \ref{fig14}, node $I$ has the highest closeness centrali
     \label{fig14}
 \end{figure}
 
-The time complexity of this algorithm O($v^3$) where $v$ is number of vertices in graph. Faster methods also have been proposed with time complexity O($\alpha * v$) where $\alpha \approx 10 - 100$\cite{59}. This measure is being used in telecommunication networks for measuring speed of the network and also in extracting important words from a document.
+The time complexity of this algorithm O($v^3$) where $v$ is the number of vertices in a graph. Faster methods also have been proposed with time complexity O($\alpha * v$) where $\alpha \approx 10 - 100$\cite{59}. This measure is being used in telecommunication networks for measuring the speed of the network and also in extracting important words from a document.
 
 \subsection{Betweenness Centrality}
-Betweenness centrality is the measure of importance on the flow of data of a given node in a graph. It identifies nodes that connects two or more sub parts of a graph. It was first developed by Freeman in 1971\cite{32}.
+Betweenness centrality is the measure of importance on the flow of data of a given node in a graph. It identifies nodes that connect two or more sub-parts of a graph. It was first developed by Freeman in 1971\cite{32}.
 
-The algorithm calculates shortest path between pair of nodes using BFS. Every node is assigned a score based on the number of shortest paths passing through the particular node. Consider the following figure \ref{fig15}. In this figure, a directed graph is shown. Since node $B$ forms the bridge of the network as it is connected to all other nodes. If $B$ is removed, the graph would be disconnected. Hence, $B$ is the most important node in the graph.
+The algorithm calculates the shortest path between a pair of nodes using BFS. Every node is assigned a score based on the number of shortest paths passing through the particular node. Consider the following figure \ref{fig15}. In this figure, a directed graph is shown. Since node, $B$ forms the bridge of the network as it is connected to all other nodes. If $B$ is removed, the graph would be disconnected. Hence, $B$ is the most important node in the graph.
 
 \begin{figure}[!h]
     \centerline{\includegraphics[scale=0.8]{figures/betweeness.pdf}}
@@ -390,11 +373,11 @@ The algorithm calculates shortest path between pair of nodes using BFS. Every no
     \label{fig15}
 \end{figure}
 
-The time complexity of this algorithm O($v*e$) where $v$ is number of vertices and $e$ is edges in the graph. This algorithm is being used in social networks to find out influencer accounts and in telecommunication networks to pinpoint important nodes in the network so as to prevent these nodes to failing.
+The time complexity of this algorithm O($v*e$) where $v$ is the number of vertices and $e$ is edges in the graph. This algorithm is being used in social networks to find out influencer accounts and in telecommunication networks to pinpoint important nodes in the network to prevent these nodes from failing.
 
 \section{Graph Neural Networks}
 \label{sec:gnn}
-Deep learning has been a revolutionary invention which has improvised many machine learning tasks. Tasks like natural language processing to image recognition and prediction to data generation. However, these tasks use training data which is represented in Euclidean space and graph data is represented in non-Euclidean space. There was a need to use machine learning algorithms on this ever increasing graph data. Scarselli et al. in 2009 presented the first ever Graph Neural Network (GNN) model\cite{34}. The model uses a function which maps a given graph and its nodes to an $n$-dimensional Euclidean space. 
+Deep learning has been a revolutionary invention which has improvised many machine learning tasks. Tasks like natural language processing to image recognition and prediction to data generation. However, these tasks use training data which is represented in Euclidean space and graph data is represented in non-Euclidean space. There was a need to use machine learning algorithms on this ever-increasing graph data. Scarselli et al. in 2009 presented the first-ever Graph Neural Network (GNN) model\cite{34}. The model uses a function which maps a given graph and its nodes to a $n$-dimensional Euclidean space. 
 
 GNN is usually used for classifying nodes. In essence, predicting labels of nodes in a graph. It learns about the representation of a target node by iteratively propagating neighboring information until a secure fixed point is reached. Because of challenges in GNN, many methods were proposed recently. The survey paper will briefly describe some of these methods. Recurrent Graph Neural Networks, Convolutional Graph Neural Networks, Graph Autoencoders, Spatial-Temporal Graph Neural Networks are some of the most common GNN models\cite{33}.
 
@@ -402,15 +385,15 @@ GNN is usually used for classifying nodes. In essence, predicting labels of node
 Recurrent Graph Neural Networks (RecGNNs) learn node characterization. It does so with the help of recurrent neural architecture. It works on the underlying assumption that a node in a graph shares data with its neighbors all the time until a stable balance is reached. Due to the recurrent nature of RecGNN, the same recurrent layer updates the representations.
 
 \subsection{Convolutional Graph Neural Networks}
-Convolutional Graph Neural Networks (ConvGNNs) is used to deduce grid-to-graph data conversion operations. The algorithm works by predicting a node's representation by summing up its and its neighbors' features. Unlike RecGNNs, ConvGNN use different multiple layers to update representations. It uses different weights in these layers. There are two types of ConvGNN, spectral-based ConvGNNs and spatial-based ConvGNNs. Spectral-based ConvGNNs use filters in layers while in spatial-based ConvGNNs, it uses the spatial relations of nodes to define layers.
+Convolutional Graph Neural Networks (ConvGNNs) is used to deduce grid-to-graph data conversion operations. The algorithm works by predicting a node's representation by summing up its and its neighbors' features. Unlike RecGNNs, ConvGNN uses different multiple layers to update representations. It uses different weights in these layers. There are two types of ConvGNN, spectral-based ConvGNNs, and spatial-based ConvGNNs. Spectral-based ConvGNNs use filters in layers while in spatial-based ConvGNNs, it uses the spatial relations of nodes to define layers.
 
 \subsection{Graph Autoencoders}
-Graph Autoencoders (GAEs) works by encoding graphs in a latent vector space and then from these encoded form it reconstructs the graph. GAEs are used to learn embedding networks and to generate graphs. It studies latent node representations for network embedding through the recreation of conceptual graphic knowledge such as the adjacency matrix.
+Graph Autoencoders (GAEs) works by encoding graphs in a latent vector space and then from these encoded forms it reconstructs the graph. GAEs are used to learn embedding networks and to generate graphs. It studies latent node representations for network embedding through the recreation of conceptual graphic knowledge such as the adjacency matrix.
 
 \subsection{Spatial-Temporal Graph Neural Networks}
-Spatial-Temporal Graph Neural Networks (STGNNs) identifies and learns hidden patterns in spatial-temporal graphs. Spatial-temporal graphs are collected based on space and time. In essence it means processing real time data. Thus it needs to use both spatial and temporal data at the same time. It is used for predicting future nodes. It is used in conjugation with ConvGNN and either Recurrent Neural Network (RNN) or Convolutional Neural Network (CNN).
+Spatial-Temporal Graph Neural Networks (STGNNs) identifies and learns hidden patterns in spatial-temporal graphs. Spatial-temporal graphs are collected based on space and time. In essence, it means processing real-time data. Thus it needs to use both spatial and temporal data at the same time. It is used for predicting future nodes. It is used in conjugation with ConvGNN and either Recurrent Neural Network (RNN) or Convolutional Neural Network (CNN).
 
-Zhou et al. identified some limitations on GNN in \cite{60}. To overcome these limitations, they have proposed some other methods like, spectral, non-spectral, Graph Attention Networks, Gated Graph Neural Networks and Graph LSTM. 
+Zhou et al. identified some limitations on GNN in \cite{60}. To overcome these limitations, they have proposed some other methods like spectral, non-spectral, Graph Attention Networks, Gated Graph Neural Networks, and Graph LSTM. 
 
 \section{Discussion}
 \label{sec:discussion}
