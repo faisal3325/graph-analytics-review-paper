@@ -184,12 +184,9 @@ The time complexity of SSSP is given by O($V*E$) while the space complexity is O
 \subsection{All-Pairs Shortest Path}
 To understand the All-Pairs Shortest Path (APSP) algorithm, the problem should be discussed first. APSP problem is for finding the minimum distance between every vertex of a particular edge. The graph should be directed with weights. To solve this APSP problem, multiple variants of APSP algorithms were proposed\cite{43, 44, 45, 46}. This paper will first look into the Floyd-Warshall algorithm which is quite popular amongst other APSP algorithms. Unlike SSSP, this algorithm does not work on the "negative cycles" graph however, it can work on both directed and undirected graphs.
 
-The output of this algorithm is a matrix representing the shortest distance from a node to other nodes. When a node is unreachable to another node, the algorithm returns infinity which signifies no path can be formed. The figure shown below  
+The output of this algorithm is a matrix representing the shortest distance from a node to other nodes. When a node is unreachable to another node, the algorithm returns infinity which signifies no path can be formed.
 
-
-
-The time complexity of this algorithm is O($n^3$) where $n$ is the number of vertices and space complexity is given by O($n^2$). Some common use cases of the APSP algorithm are
-
+The time complexity of this algorithm is O($n^3$) where $n$ is the number of vertices and space complexity is given by O($n^2$). Some common use cases of the APSP algorithm include pool ride-sharing for picking up riders along the way.
 
 \subsection{Minimum Weight Spanning Tree}
 Minimum Weight Spanning Tree (MST) is applied to a tree where a path needs to be traced with minimum weight among all nodes. MST is used mostly to make clusters in a graph. K-Means is used along with MST to find clusters. MST was first developed by Borůvka in 1926\cite{47}. The most famous known adoption of Borůvka's algorithm was done by Jarnik in 1930\cite{48} which is sometimes called Prim's algorithm as he rediscovered and republished it a few years later\cite{49}. Similar to SSSP, Jarnik's algorithm can be used on "negative cycle" graphs.
