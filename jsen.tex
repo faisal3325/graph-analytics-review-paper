@@ -6,6 +6,8 @@
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{booktabs}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \markboth{Spring 2020}
@@ -45,8 +47,111 @@ Since generating data is an easier task than getting useful insights out of it, 
 \subsection{Background}
 Often data generated have relations among themselves. This data can be structured or unstructured or a mix of both. Since it is not feasible to understand these relations using the traditional big data analytics techniques, a better model had to be devised. A graph model was proposed to connect the data. Graphs are effective for analyzing, making recommendation systems, and mining social networks. Due to the flexibility of this model it allows large quantities of information from many sources to be quickly absorbed and linked in ways that addressed the limitations in the source structures. A good way of representing the graph model is connections of a social media account; it represents a graphical structure with connections (edges) formed between different accounts (nodes/entities). This model enabled analyzing relationships and deducing interesting patterns between accounts (entities) in the structure. Graph analytics is a term used to define these methods of analysis. It is defined as an alternative to the conventional data warehouse model as a system for allowing analysts to check structured and unstructured data from different sources. Some business use cases of graph analytics include healthcare quality analysis, cybersecurity, and correlation findings.
 
-\subsection{Taxonomy}
+Since the graph data is being covered in reference to big data, this paper will cover such algorithms which are efficient in running on big graph data.
 
+\subsection{Taxonomy}
+In this section, the paper presents taxonomy of graph analytics techniques, as shown in Table \ref{tab:taxonomy_table}.
+
+
+% \begin{table*}
+% \caption{Taxonomy and citations of graph analytics techniques}
+% \label{taxonomy_table}
+% \setlength{\tabcolsep}{3pt}
+% \begin{tabular}{@{} cc @{}}
+% \hline
+% Technique& 
+% Citations \\
+% \hline
+% Path Analysis 
+% & 1 \\
+% 1 & 1 \\
+% \hline
+% \end{tabular}
+% \end{table*}
+
+\begin{table*}[htb]
+    \caption{Taxonomy and citations of Graph Analytic techniques}
+    \label{tab:taxonomy_table}
+    \centering
+    \begin{tabular}{l l l}
+        \toprule
+        \multicolumn{2}{l}{Technique} & Citations \\ 
+        \midrule
+        
+        \multirow{2}{*}{} & Parallel Breadth-First Search & \cite{2}\\ 
+        \cline{2-3} 
+        \multirow{2}{*}{} & Parallel Depth-First Search & \cite{2}\\ 
+        \cline{2-3} 
+        \multirow{2}{*}{} & Single-Source Shortest Path & \cite{2}\\ 
+        \cline{2-3} 
+        Path Analysis &  All-Pairs Shortest Path  & \begin{tabular}[c]{@{}l@{}} \cite{3}\\
+            \cite{4}   \\
+            \cite{5}\\
+        \end{tabular}\\ 
+        \cline{2-3} 
+        \multirow{2}{*}{} & Minimum Weight Spanning Tree & \cite{2}\\ 
+        \cline{2-3} 
+        \multirow{2}{*}{} & Random Walk & \cite{2}\\  
+        \midrule
+
+        Connectivity Analysis &  Kosaraju’s BFS and DFS  & \begin{tabular}[c]{@{}l@{}} \cite{3}\\
+            \cite{4}   \\
+            \cite{5}\\
+        \end{tabular}\\ 
+        \midrule
+
+        \multirow{2}{*}{} & Label Propagation & \cite{2}\\ 
+        \cline{2-3} 
+        \multirow{2}{*}{} & Louvain Modularity & \cite{2}\\ 
+        \cline{2-3} 
+        Community Analysis & Node Clustering Coefficient and Average Clustering Coefficient & \begin{tabular}[c]{@{}l@{}} \cite{3}\\
+            \cite{4}   \\
+            \cite{5}\\
+        \end{tabular}\\ 
+        \cline{2-3}
+        \multirow{2}{*}{} & Bron-Kerbosch & \cite{2}\\  
+        \midrule
+
+        \multirow{2}{*}{} & Degree Centrality & \cite{2}\\ 
+        \cline{2-3} 
+        \multirow{2}{*}{} & Eigenvector Centrality & \cite{2}\\ 
+        \cline{2-3} 
+        \multirow{2}{*}{} & Katz Centrality & \cite{2}\\ 
+        \cline{2-3} 
+        Centrality Analysis &  PageRank Centrality  & \begin{tabular}[c]{@{}l@{}} \cite{3}\\
+            \cite{4}   \\
+            \cite{5}\\
+        \end{tabular}\\ 
+        \cline{2-3} 
+        \multirow{2}{*}{} & Closeness Centrality & \cite{2}\\ 
+        \cline{2-3} 
+        \multirow{2}{*}{} & Betweenness Centrality & \cite{2}\\
+        \midrule
+
+        \multirow{2}{*}{} &  Recurrent Graph Neural Networks & \cite{2}\\ 
+        \cline{2-3} 
+        \multirow{2}{*}{} & Convolutional Graph Neural Network & \cite{2}\\ 
+        \cline{2-3} 
+        Graph Neural Network & Graph Autoencoders & \begin{tabular}[c]{@{}l@{}} \cite{3}\\
+            \cite{4}   \\
+            \cite{5}\\
+        \end{tabular}\\ 
+        \cline{2-3}
+        \multirow{2}{*}{} & Spatial-Temporal Gaph Neural Network & \cite{2}\\  
+
+        \bottomrule
+    \end{tabular}
+\end{table*}
+
+\textbf{Path Analysis} algorithms are used for discovering new or optimal paths in a graph. There are four types of path analysis algorithms, parallel breadth-first search, parallel depth-first search, single-source shortest path, all-pairs shortest path, minimum weight spanning tree, and random walk.
+
+\textbf{Connectivity Analysis} algorithms are used for checking the strength between nodes and sub graphs in a graph. Kosaraju's BFS and DFS are two algorithms surveyed for connectivity analysis.
+
+\textbf{Community Analysis} algorithms are used for analyzing communities, their strength and attributes. This paper has covered label propagation, Louvain modularity, node clustering coefficient, average clustering coefficient, and Bron-Kerbosch.
+
+\textbf{Centrality Analysis} algorithms are used to detect importance of nodes. It is used majorly in social network analysis. Degree centrality, Eigenvector centrality, Katz centrality, PageRank centrality, closeness centrality, and betweenness centrality are some of centrality analysis algorithms.
+
+\textbf{Graph Neural Network (GNN)} is deep learning applied on graph data for predictions of node labels and/or generating graphs and nodes. Recurrent Graph Neural Networks, Convolutional Graph Neural Networks, Graph Autoencoders, Spatial-Temporal Graph Neural Networks are some of the most common GNN models surveyed briefly in this paper.  
 
 \section{Path Analysis}
 \label{sec:path}
@@ -125,8 +230,7 @@ Random walk has been used to analyse behvaiors; to analyse a pattern was invlove
 \label{sec:connectivity}
 Connectivity analysis helps in identifying the strength of connections/vertices between two nodes in a graph. It is most commonly used for analyzing weaknesses in a graph network. Before diving into the algorithms, its important to understand how the strength of a connection is defined in a graph.
 
-\subsection{Strongly Connected Components}
-\label{sec:scc}
+\textbf{Strongly Connected Components}\label{sec:scc}
 A component comprises two or more nodes connected. A concept of Strongly Connected Components (SCCs)\cite{39} is used. A component is said to be strongly connected when a given pair of nodes in the component has connections with each other.
 
 \begin{figure}[!h]
